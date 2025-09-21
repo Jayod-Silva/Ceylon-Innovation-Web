@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 import SkynetPro from "../assets/skynet-pro.png";
 import SkynetRetail from "../assets/skynet-retail.png";
 import healthcareIMS from "../assets/healthcareIMS.png";
-import StarsIMS from "../assets/StarsIMS.png";
+import starsIMS from "../assets/starsIMS.png";
 import PopupImage from "../assets/popup-image.png";
 import TransformImage from "../assets/business-transformation.png";
 import WorldMap from "../assets/world-dots.png";
@@ -875,7 +875,7 @@ export default function Home() {
                   >
                     <div className="aspect-[4/3] flex items-center justify-center bg-blue-50">
                       <img
-                        src={StarsIMS}
+                        src={starsIMS}
                         alt="STARS IMS"
                         className="w-4/5 h-auto object-contain p-2"
                       />
