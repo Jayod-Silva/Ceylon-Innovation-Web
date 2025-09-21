@@ -10,6 +10,8 @@ import Contact from './routes/Contact';
 import NotFound from './routes/NotFound';
 import Charity from './routes/Charity';
 import Partners from './routes/Partners';
+import Entertainment from './routes/Entertainment';
+
 
 
 // Domain pages
@@ -18,8 +20,8 @@ import Hospitality from './routes/Hospitality';
 import Education from './routes/Education';
 import Retail from './routes/Retail';
 import Finance from './routes/Finance';
-import Resturant from './routes/Resturant';
-import Pastry from './routes/Pastry';
+
+
 import Service from './routes/Service';
 import Other from './routes/Other';
 
@@ -52,8 +54,11 @@ export const router = createBrowserRouter([
       { path: 'domain/education', element: <Education /> },
       { path: 'domain/retail', element: <Retail /> },
       { path: 'domain/finance', element: <Finance /> },
-      { path: 'domain/resturant', element: <Resturant /> },
-      { path: 'domain/pastry', element: <Pastry /> },
+      { path: 'domain/entertainment', element: <Entertainment /> },
+
+
+  
+   
       { path: 'domain/service', element: <Service /> },
       { path: 'domain/other', element: <Other /> },
 

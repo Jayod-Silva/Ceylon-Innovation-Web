@@ -1,61 +1,40 @@
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
-import choys from "../assets/choys.jpg";
-import pizza from "../assets/pizza boss.jpg";
-import spice from "../assets/spice food.jpg";
-import thanduri from "../assets/thanduri.jpg";
-import delight from "../assets/delight.jpg";
-import ramya from "../assets/siri ramya.png";
 
-// Section data
+import mariyans from "../assets/marians.png";
+import dushan from "../assets/dushan.jpg";
+import daddy from "../assets/daddy.png";
+
+
+
 const sections = [
   {
-    title: "Choy’s Waterfront Residence",
-    description: `Choy’s Waterfront Residence, Negombo enhances hospitality operations with integrated 
-    solutions, ensuring efficient management, seamless guest services, and an exceptional stay 
-    experience with faster response to guest needs.`,
-    imgSrc: choys,
+    title: "Mariyans",
+    description:
+      "Mariyans Music Group providing complete music solutions with high-quality recordings, modern studio facilities, customized compositions, timely releases, project management, and intelligent reporting.",
+    imgSrc: mariyans,
   },
   {
-    title: "Pizza Boss",
-    description: `Pizza Boss manages order processing, menu customization, kitchen operations, 
-    delivery tracking, inventory management, and intelligent reporting.`,
-    imgSrc: pizza,
+    title: "Dushan Jayathilaka",
+    description:
+      "Dushan Jayathilaka Music Group delivering exceptional music services with creative compositions, state-of-the-art studio facilities, personalized productions, timely project completion, efficient workflow, and insightful performance reporting.",
+    imgSrc: dushan,
   },
-  {
-    title: "Spice Food Court",
-    description: `Spice Food Court manages order processing, menu customization, kitchen operations, 
-    table & delivery management, inventory control, and intelligent reporting.`,
-    imgSrc: spice,
+    {
+    title: "Daddy",
+    description:
+      "Dushan Jayathilaka Music Group delivering exceptional music services with creative compositions, state-of-the-art studio facilities, personalized productions, timely project completion, efficient workflow, and insightful performance reporting.",
+    imgSrc: daddy,
   },
-  {
-    title: "Tandoori Indian Cuisine, Kandy",
-    description: `Tandoori Indian Cuisine, Kandy provides complete dining solutions with authentic 
-    Indian flavors, modern kitchen equipment, customized menu options, timely service, 
-    ingredient management, and intelligent reporting.`,
-    imgSrc: thanduri,
-  },
-  {
-    title: "Delight - Kandy",
-    description: `Delight, Kandy provides complete dining solutions with delicious menu offerings, 
-    modern kitchen facilities, customized orders, timely service, inventory management, 
-    and intelligent reporting.`,
-    imgSrc: delight,
-  },
-  {
-    title: "Siri Ramya - Kandy",
-    description: `Siri Ramya, Kandy delivers exceptional dining experiences with flavorful dishes, 
-    efficient kitchen operations, personalized menu options, prompt service, stock management, 
-    and smart reporting.`,
-    imgSrc: ramya,
-  },
+  
+
 ];
 
-export default function Restaurant() {
+export default function Other() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Floating Navbar */}
+      {/* Navbar */}
       <div className="absolute top-[-10px] md:top-[-20px] sm:top-[-15px] left-0 right-0 z-50">
         <Navbar />
       </div>
@@ -70,7 +49,7 @@ export default function Restaurant() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Restaurant
+              Entertainment
             </h1>
             <motion.p
               className="text-lg sm:text-xl text-gray-600 max-w-5xl mx-auto leading-relaxed px-4"
@@ -78,9 +57,10 @@ export default function Restaurant() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              The SKYNET Software For Restaurant Management – Handles order & billing, kitchen operations, 
-              table reservations, inventory & supply, customer management, and sales analytics for efficient, 
-              data-driven restaurant operations.
+              The SKYNET Software for Music Management, Gems Management, Wine Store
+              Management, and various other industry solutions with comprehensive business
+              automation, inventory management, customer relationships, and intelligent
+              reporting.
             </motion.p>
           </motion.div>
 
@@ -97,7 +77,7 @@ export default function Restaurant() {
               >
                 {/* Background highlight for alternate sections */}
                 {idx % 2 === 0 && (
-                  <div className="absolute inset-0 left-[-100px] right-0 w-screen bg-gradient-to-r from-blue-50 to-transparent"></div>
+                  <div className="absolute inset-0 left-[-100px] right-[-100px] w-screen bg-gradient-to-r from-blue-50 to-transparent"></div>
                 )}
 
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10 px-6 sm:px-8 lg:px-12">
@@ -107,13 +87,13 @@ export default function Restaurant() {
                     whileHover={{ scale: 1.08, rotate: 1 }}
                     transition={{ duration: 0.4 }}
                   >
-                    <div className="relative w-72 h-72 sm:w-100 sm:h-100 overflow-hidden rounded-[40px] rounded-tr-[0px] shadow-xl group">
+                    <div className="relative w-72 h-72 sm:w-100 sm:h-100 overflow-hidden rounded-[50px] rounded-tr-[0px] shadow-xl group">
                       <img
                         src={section.imgSrc}
                         alt={section.title}
                         className="h-full w-full object-cover transform group-hover:scale-110 transition duration-500 ease-out"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-tr from-orange-200/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                      <div className="absolute inset-0 bg-gradient-to-tr from-purple-200/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
                     </div>
                   </motion.div>
 

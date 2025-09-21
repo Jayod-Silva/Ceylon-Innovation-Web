@@ -2,8 +2,8 @@ import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
 import { motion } from 'framer-motion'
 import hero from '../assets/sky-logo.png'
-import schoolImg from '../assets/school.png'
-import churchImg from '../assets/smc.png'
+import smc from '../assets/smc.png'
+import churchImg from '../assets/church.jpg'
 
 export default function Charity() {
   return (

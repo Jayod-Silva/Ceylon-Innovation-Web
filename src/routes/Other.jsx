@@ -2,33 +2,15 @@ import { motion } from "framer-motion";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 
-// import mariyans from "../assets/marians.png";
+import mariyans from "../assets/marians.png";
 import dushan from "../assets/dushan.jpg";
-import zamgems from "../assets/zam gems.jpg";
 import rohanwine from "../assets/rohan wine.jpg";
 import junewine from "../assets/june wine.jpg";
 import hemas from "../assets/hemas.jpg";
 
-// Section data
+
 const sections = [
-  // {
-  //   title: "Mariyans",
-  //   description:
-  //     "Mariyans Music Group providing complete music solutions with high-quality recordings, modern studio facilities, customized compositions, timely releases, project management, and intelligent reporting.",
-  //   imgSrc: mariyans,
-  // },
-  {
-    title: "Dushan Jayathilaka",
-    description:
-      "Dushan Jayathilaka Music Group delivering exceptional music services with creative compositions, state-of-the-art studio facilities, personalized productions, timely project completion, efficient workflow, and insightful performance reporting.",
-    imgSrc: dushan,
-  },
-  {
-    title: "ZAM Gems",
-    description:
-      "ZAM Gems delivering exceptional gemstone services with certified quality, modern processing facilities, customized designs, timely order fulfillment, efficient inventory management, and insightful sales reporting.",
-    imgSrc: zamgems,
-  },
+ 
   {
     title: "Rohan Wine",
     description:

@@ -123,16 +123,12 @@ export default function Contact() {
               transition={{ duration: 0.5 }}
               className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm"
             >
-              <iframe
-                title="Ceylon Innovation Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7923.827979593816!2d79.840!3d7.210!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCeylon%20Innovation%20Services!5e0!3m2!1sen!2slk!4v1710000000000"
-                width="100%"
-                height="420"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.0594976108596!2d79.84688787261408!3d7.2340543927721255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2cb6c28738405%3A0x9929b748309020af!2sCeylon%20Innovation%20Services%20(PVT)%20LTD!5e0!3m2!1sen!2slk!4v1758439742175!5m2!1sen!2slk"
+               width="100%" 
+               height="420" 
+               style={{ border: 0 }}
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+           
             </motion.div>
 
             {/* Form */}

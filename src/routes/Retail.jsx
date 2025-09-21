@@ -5,9 +5,16 @@ import hirusalt from "../assets/hiru salt.jpg";
 import dammika from "../assets/dammika furniture.png";
 import udara from "../assets/udara printers.jpg";
 import jayasuriya from "../assets/jayasuriya fuel.jpg";
+import zamgems from "../assets/zam gems.jpg";
 
 // Section data
 const sections = [
+  {
+    title: "ZAM Gems",
+    description:
+      "ZAM Gems delivering exceptional gemstone services with certified quality, modern processing facilities, customized designs, timely order fulfillment, efficient inventory management, and insightful sales reporting.",
+    imgSrc: zamgems,
+  },
   {
     title: "Hiru Salt",
     description: `Hiru Salt Puttalam enhances retail operations with integrated solutions, 

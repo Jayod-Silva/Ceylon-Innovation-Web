@@ -7,6 +7,19 @@ import farinn from "../assets/far inn village.png";
 import skylongue from "../assets/sky longue.jpg";
 import melheim from "../assets/melheim chain.jpg";
 import arya from "../assets/arya grand.jpg";
+import rio from '../assets/riocaffe.jpg';
+import sensal from '../assets/sensal.jpg';
+import bakers from '../assets/pgbakers.jpg';
+import ransara from '../assets/ransara.jpg';
+import ransilu from '../assets/ransilu.png';
+import choice from '../assets/choice cafe.png';
+import tera from '../assets/teralounge.jpg';
+import choys from "../assets/choys.jpg";
+import pizza from "../assets/pizza boss.jpg";
+import spice from "../assets/spice food.jpg";
+import thanduri from "../assets/thanduri.jpg";
+import delight from "../assets/delight.jpg";
+import ramya from "../assets/siri ramya.png";
 
 // Section data
 const sections = [
@@ -52,7 +65,83 @@ const sections = [
     catering services, inventory & supply chain management, customer relationship management, 
     and intelligent data analytics & reporting into one unified system.`,
     imgSrc: arya,
+    
   },
+    {
+      title: 'Rio Cafe',
+      description: `At Rio Caffe, we provided an integrated digital platform designed to enhance café and restaurant operations. Our solution brings together order management, billing & finance, kitchen and menu operations, inventory & supply chain monitoring, customer relationship management, and intelligent data analytics & reporting into one streamlined system.`,
+      imgSrc: rio,
+    },
+    {
+      title: 'Sen-Saal',
+      description: `At Sen-Saal, we provided an integrated digital platform designed to modernize bakery and restaurant operations. Our solution unifies order management, billing & finance, recipe and production tracking, kitchen operations, inventory & supply chain monitoring, customer relationship management, and intelligent data analytics & reporting into one seamless system.`,
+      imgSrc: sensal,
+    },
+    {
+      title: 'P & G Bakers',
+      description: `At P&G Bakers, we provided an integrated digital platform designed to optimize bakery and café operations. Our solution streamlines order processing, billing & finance, recipe and production management, kitchen workflows, inventory & supply chain control, customer relationship management, and intelligent data analytics & reporting into one efficient system.`,
+      imgSrc: bakers,
+    },
+    {
+      title: 'Ransara',
+      description: `At Ransara, we provided an integrated digital platform designed to streamline bakery and restaurant operations. Our solution brings together order management, billing & finance, recipe and production tracking, kitchen workflows, inventory & supply chain monitoring, customer relationship management, and intelligent data analytics & reporting into one unified system.`,
+      imgSrc: ransara,
+    },
+    {
+      title: 'Ransilu Bakers',
+      description: `At Ransilu Bakers, we provided an integrated digital platform designed to enhance bakery and café operations. Our solution integrates order processing, billing & finance, recipe and production management, kitchen operations, inventory & supply chain monitoring, customer relationship management, and intelligent data analytics & reporting into one seamless system.`,
+      imgSrc: ransilu,
+    },
+    {
+      title: 'Choice Cafe',
+      description: `Choice Cafe offers a vibrant café experience with expertly crafted drinks, fresh and flavorful dishes, a cozy and modern atmosphere, personalized service, quick order fulfillment, and smart insights to enhance every visit.`,
+      imgSrc: choice,
+    },
+    {
+      title: 'Teralounge',
+      description: `Teralounge Cafe offers a premium café experience with gourmet beverages, freshly prepared meals, cozy ambiance, personalized service, efficient order management, and insightful customer feedback tracking.`,
+      imgSrc: tera,
+    },
+    {
+        title: "Choy’s Waterfront Residence",
+        description: `Choy’s Waterfront Residence, Negombo enhances hospitality operations with integrated 
+        solutions, ensuring efficient management, seamless guest services, and an exceptional stay 
+        experience with faster response to guest needs.`,
+        imgSrc: choys,
+      },
+      {
+        title: "Pizza Boss",
+        description: `Pizza Boss manages order processing, menu customization, kitchen operations, 
+        delivery tracking, inventory management, and intelligent reporting.`,
+        imgSrc: pizza,
+      },
+      {
+        title: "Spice Food Court",
+        description: `Spice Food Court manages order processing, menu customization, kitchen operations, 
+        table & delivery management, inventory control, and intelligent reporting.`,
+        imgSrc: spice,
+      },
+      {
+        title: "Tandoori Indian Cuisine, Kandy",
+        description: `Tandoori Indian Cuisine, Kandy provides complete dining solutions with authentic 
+        Indian flavors, modern kitchen equipment, customized menu options, timely service, 
+        ingredient management, and intelligent reporting.`,
+        imgSrc: thanduri,
+      },
+      {
+        title: "Delight - Kandy",
+        description: `Delight, Kandy provides complete dining solutions with delicious menu offerings, 
+        modern kitchen facilities, customized orders, timely service, inventory management, 
+        and intelligent reporting.`,
+        imgSrc: delight,
+      },
+      {
+        title: "Siri Ramya - Kandy",
+        description: `Siri Ramya, Kandy delivers exceptional dining experiences with flavorful dishes, 
+        efficient kitchen operations, personalized menu options, prompt service, stock management, 
+        and smart reporting.`,
+        imgSrc: ramya,
+      },
 ];
 
 export default function Hospitality() {

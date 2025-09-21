@@ -287,6 +287,7 @@ const slideUpVariants = {
 };
 
 export default function Home() {
+  
   const [showPopup, setShowPopup] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
@@ -670,6 +671,7 @@ export default function Home() {
 
           {/* Products Section */}
           <motion.section
+          
             id="products"
             ref={productsAnimation.ref}
             animate={productsAnimation.controls}

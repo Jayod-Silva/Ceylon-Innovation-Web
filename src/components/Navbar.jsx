@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import logo from '../assets/Colour_Logo.png';
-
 
 // Reusable classes
 const navLinkClass = ({ isActive }) =>
@@ -13,18 +12,45 @@ const navLinkClass = ({ isActive }) =>
 const mobileNavLinkClass =
   'block px-4 py-3 text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50 transition-colors rounded-lg';
 
-export default function Navbar() {
+export default function Navbar({ onProductsClick }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
 
   const location = useLocation();
+  const navigate = useNavigate();
   const isDomainPage = location.pathname === '/domain';
 
   const industriesDropdownRef = useRef(null);
   const moreDropdownRef = useRef(null);
   const productsDropdownRef = useRef(null);
+
+  // Handle scroll to products when navigating from other pages
+  // Handle scroll to products when navigating from other pages
+useEffect(() => {
+  if (location.state?.scrollToProducts) {
+    const section = document.getElementById("products");
+    if (section) {
+      setTimeout(() => {
+        // Calculate navbar height (adjust this value based on your actual navbar height)
+        const navbarHeight = 80; // Approximate height in pixels
+        
+        // Scroll to section with offset for navbar
+        const elementPosition = section.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - navbarHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+        
+        // Clear the state to prevent scrolling on every render
+        navigate(location.pathname, { replace: true, state: {} });
+      }, 100);
+    }
+  }
+}, [location.state, navigate, location.pathname]);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -67,21 +93,11 @@ export default function Navbar() {
     setIsProductsOpen(!isProductsOpen);
   };
 
-  const handleProductsClick = (e) => {
-    if (location.pathname === '/') {
-      e.preventDefault();
-      const section = document.getElementById('products');
-      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      window.location.href = '/#products';
-    }
-  };
-
   return (
     <header
       className={`fixed top-0 left-1/2 transform -translate-x-1/2 z-50 mt-4 mt-[10px] md:mt-6 `}
       style={{
-        width: 'calc(100vw - 20px)', // Increased width for small screens
+        width: 'calc(100vw - 20px)',
         maxWidth: '1600px',
         marginLeft: '10px',
         marginRight: '10px',
@@ -107,29 +123,40 @@ export default function Navbar() {
           <button
             className="px-6 py-2 text-base font-medium text-gray-700 hover:text-blue-500 flex items-center space-x-1 cursor-pointer"
             onClick={() => {
-              const section = document.getElementById("Home");
-              if (section) {
-                section.scrollIntoView({ behavior: "smooth" });
+              if (location.pathname === "/") {
+                const section = document.getElementById("Home");
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
+                }
+              } else {
+                navigate("/");
               }
             }}
           >
             <span>Home</span>
           </button>
 
-          {/* Products Dropdown */}
-          <button
+          {/* Products - FIXED */}
+          <NavLink
+            to="/"
             className="px-6 py-2 text-base font-medium text-gray-700 hover:text-blue-500 flex items-center space-x-1 cursor-pointer"
-            onClick={() => {
-              const section = document.getElementById("products");
-              if (section) {
-                section.scrollIntoView({ behavior: "smooth" });
+            onClick={(e) => {
+              if (location.pathname !== "/") {
+                // If we're not on home page, navigate to home first
+                e.preventDefault();
+                navigate("/", { state: { scrollToProducts: true } });
+              } else {
+                // If we're already on home page, scroll to products
+                e.preventDefault();
+                const section = document.getElementById("products");
+                if (section) {
+                  section.scrollIntoView({ behavior: "smooth" });
+                }
               }
             }}
           >
             <span>Products</span>
-          </button>
-
-
+          </NavLink>
 
           {/* Industries Dropdown */}
           <div className="relative" ref={industriesDropdownRef}>
@@ -172,7 +199,7 @@ export default function Navbar() {
                   onClick={() => setIsIndustriesOpen(false)}
                 >
                   • Education
-                  </NavLink>
+                </NavLink>
                 <NavLink
                   to="/domain/finance"
                   className="block px-4 py-2 text-base text-gray-800 hover:bg-blue-50 hover:text-blue-600 rounded-lg"
@@ -181,18 +208,11 @@ export default function Navbar() {
                   • Finance
                 </NavLink>
                 <NavLink
-                  to="/domain/resturant"
+                  to="/domain/entertainment"
                   className="block px-4 py-2 text-base text-gray-800 hover:bg-blue-50 hover:text-blue-600 rounded-lg"
                   onClick={() => setIsIndustriesOpen(false)}
                 >
-                  • Resturant 
-                </NavLink>
-                <NavLink
-                  to="/domain/pastry"
-                  className="block px-4 py-2 text-base text-gray-800 hover:bg-blue-50 hover:text-blue-600 rounded-lg"
-                  onClick={() => setIsIndustriesOpen(false)}
-                >
-                  • Pastry
+                  • Entertainment
                 </NavLink>
                 <NavLink
                   to="/domain/service"
@@ -208,14 +228,6 @@ export default function Navbar() {
                 >
                   • Other
                 </NavLink>
-                <NavLink
-                    to="/domain/other"
-                  className="block px-4 py-2 text-base text-gray-800 hover:bg-blue-50 hover:text-blue-600 rounded-lg"
-                  onClick={() => setIsIndustriesOpen(false)}
-                >
-
-                </NavLink>
-
               </div>
             )}
           </div>
@@ -294,7 +306,7 @@ export default function Navbar() {
           <nav
             className={`lg:hidden absolute top-full left-0 right-0 ${
               isDomainPage ? 'bg-gray-100' : 'bg-white'
-            } border border-gray-100 rounded-2xl shadow-xl mx-1 sm:mx-4 mt-2 z-50`} // mx-1 for smaller margin
+            } border border-gray-100 rounded-2xl shadow-xl mx-1 sm:mx-4 mt-2 z-50`}
           >
             <div className="px-2 sm:px-6 py-4 space-y-2">
               {/* Home */}
@@ -324,32 +336,32 @@ export default function Navbar() {
                 {isProductsOpen && (
                   <div className="ml-4 mt-1 space-y-1">
                     <NavLink
-                      to="/skynetPro"
+                      to="/skynet-pro"
                       className={mobileNavLinkClass}
                       onClick={toggleMobileMenu}
                     >
                       Skynet Pro
                     </NavLink>
                     <NavLink
-                      to="/skyneRetail"
+                      to="/skynet-retail"
                       className={mobileNavLinkClass}
                       onClick={toggleMobileMenu}
                     >
                       Skynet Retail
                     </NavLink>
                     <NavLink
-                      to="/HealthCareIMS"
+                      to="/healthcare-ims"
                       className={mobileNavLinkClass}
                       onClick={toggleMobileMenu}
                     >
                       Healthcare IMS
                     </NavLink>
                     <NavLink
-                      to="/StarsIMS"
+                      to="/stars-ims"
                       className={mobileNavLinkClass}
                       onClick={toggleMobileMenu}
                     >
-                    Stars IMS
+                      Stars IMS
                     </NavLink>
                   </div>
                 )}

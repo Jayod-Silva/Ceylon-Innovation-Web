@@ -3,6 +3,11 @@ import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
+import healthcareimsdevices from '../assets/healthcareimshero.png';
+import starsdevices from '../assets/starsdevices.png';
+import business from '../assets/business-transformation.png';
+import windows from '../assets/windows-logo.png';
+
 
 // Animation component for scroll-triggered slide-up animations
 const ScrollAnimation = ({ children, delay = 0, className = "" }) => {
@@ -42,9 +47,9 @@ const ScrollAnimation = ({ children, delay = 0, className = "" }) => {
   );
 };
 
-export default function StarsIMS() {
+export default function SkynetPro() {
   return (
-    <div className="min-h-full flex flex-col bg-white">
+    <div className="min-h-full flex flex-col bg-white px-4 sm:px-6 lg:px-16">
       {/* Floating Navbar */}
       <div className="absolute top-[-20px] md:top-[-20px] sm:top-[-15px] xs:top-[-10px] left-0 right-0 z-50">
         <Navbar />
@@ -62,12 +67,12 @@ export default function StarsIMS() {
                 transition={{ duration: 0.8 }}
               >
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                  <span className="text-blue-600">STARS</span> IMS
+                  <span className="text-blue-600">Stars</span> IMS
                 </h1>
 
                 <ScrollAnimation delay={0.2}>
                   <p className="text-gray-600 text-lg leading-relaxed mb-8 max-w-lg">
-                    Ceylon Innovation Provides The Basis For The Tailor Made Applications That Today's Hospitality Business Requires. SKYNET Pro Distributed ERP Offer A Complete Range Of Features For The Hospitality Industry That Addresses Every Requirement. Each Feature Of The SKYNET Pro Distributed ERP Has Been Developed To Address The Complexity And Interconnectivity Of The Various Functions In Hospitality. We Believe The Focal Point Of Every Software Solution Should Be The Simplification And Streamlining Of Your Business Processes To Help You Devote Quality Time To Core Issues Of Business Growth And Customer Delight.
+                    Stars IMS is a unique software carefully tailored for any educational institute from school and private tutors to colleges and universities. Stars IMS can handle any number of students and provides information services for both the academic and non-academic staff.
                   </p>
                 </ScrollAnimation>
 
@@ -75,7 +80,7 @@ export default function StarsIMS() {
                   <div className="mb-8">
                     <p className="text-sm text-gray-500 mb-2">Compatible With:</p>
                     <div className="flex items-center">
-                      <img src="src/assets/windows-logo.png" alt="Windows Compatible" className="h-8 w-8" />
+                      <img src={windows} alt="Windows" className="h-8 w-auto mr-4" />
                     </div>
                   </div>
                 </ScrollAnimation>
@@ -90,9 +95,9 @@ export default function StarsIMS() {
               >
                 <div className="relative">
                   <img
-                    src="src/assets/skynet-pro-hero.png"
-                    alt="SKYNET Pro Interface"
-                    className="w-full h-auto"
+                    src={healthcareimsdevices}
+                    alt="SKYNET Pro Hero"
+                    className="w-full h-auto rounded-2xl shadow-2xl"
                   />
                 </div>
               </motion.div>
@@ -112,9 +117,9 @@ export default function StarsIMS() {
                 className="relative"
               >
                 <img
-                  src="src/assets/skynet-pro-devices.png"
-                  alt="SKYNET Pro on Multiple Devices"
-                  className="w-full h-auto"
+                  src={starsdevices}
+                  alt="SKYNET Pro Devices"
+                  className="w-full h-auto rounded-2xl shadow-2xl"
                 />
               </motion.div>
 
@@ -126,7 +131,7 @@ export default function StarsIMS() {
               >
                 <ScrollAnimation delay={0.3}>
                   <div className="space-y-6">
-                    {['Hotels','Restaurant','Pastry Shops','Pub & Bars','Member Clubs','Night Clubs','Events','Theme Park'].map((feature, i) => (
+                    {['Schools','Education Centers'].map((feature, i) => (
                       <div key={i} className="flex items-start space-x-3">
                         <div className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></div>
                         <span className="text-gray-700 text-lg">{feature}</span>
@@ -139,118 +144,161 @@ export default function StarsIMS() {
           </div>
         </section>
 
-        {/* Key Features Section */}
-        <section className="bg-white py-16 md:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* User-Friendly */}
-              <ScrollAnimation delay={0.1}>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.1 }}
-                  className="text-center"
-                >
-                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">User-Friendly</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    SKYNET Pro Is Simple To Build With Simplicity In Mind. We Avoided Unnecessary Complexity. Ensuring Users Can Be Trained Quickly And Enjoy A Seamless, Hassle-Free Experience.
-                  </p>
-                </motion.div>
-              </ScrollAnimation>
-
-              {/* Adjustable & Scalable */}
-              <ScrollAnimation delay={0.2}>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  className="text-center"
-                >
-                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Adjustable & Scalable</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    Since Every Business Is Unique, SKYNET Pro Is Designed To Provide Adapt And Be Tailored To Meet Your Specific Requirements.
-                  </p>
-                </motion.div>
-              </ScrollAnimation>
-
-              {/* Smart Automation */}
-              <ScrollAnimation delay={0.3}>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-center"
-                >
-                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Smart Automation</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    SKYNET Pro Is Intelligent Software That Automates Invoice Streamlines Operations And Reduces Manual Business Management.
-                  </p>
-                </motion.div>
-              </ScrollAnimation>
-
-              {/* Reliability */}
-              <ScrollAnimation delay={0.4}>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  className="text-center"
-                >
-                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Reliability</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    SKYNET Pro Keeps Your Business Running Online Managing Tables, Payments, Bills, And Kitchen Operations Even During Uninterrupted Events.
-                  </p>
-                </motion.div>
-              </ScrollAnimation>
-            </div>
+        {/* {/* Key Features Section - Updated layout */}
+<section className="bg-white py-16 md:py-20">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+    {/* Top Row - 3 Features */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      {/* User-Friendly */}
+      <ScrollAnimation delay={0.1}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="text-center"
+        >
+          <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
           </div>
-        </section>
+          <h3 className="text-xl font-bold text-gray-900 mb-4">User-Friendly</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">
+            Our Information System is built with simplicity in mind. We avoided unnecessary complexity, ensuring users can be trained quickly and enjoy a seamless, hassle-free experience
+          </p>
+        </motion.div>
+      </ScrollAnimation>
 
-        {/* Security Section */}
-        <section className="bg-gray-50 py-16 md:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-            <div className="text-center">
-              <ScrollAnimation delay={0.2}>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                >
-                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Security</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed max-w-md mx-auto">
-                    Our Table System Is Carefully Designed By Our Talented Software And Network Engineers To Be Secure And Safe To Protect All Your Business Data And Secure Team For The Future.
-                  </p>
-                </motion.div>
-              </ScrollAnimation>
-            </div>
+      {/* Adjustable & Scalable */}
+      <ScrollAnimation delay={0.2}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-center"
+        >
+          <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
+            </svg>
           </div>
-        </section>
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Adjustable & Scalable</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">
+            Since every business is unique, SKYNET Pro is designed to flexibly adapt and be tailored to meet your specific requirements
+          </p>
+        </motion.div>
+      </ScrollAnimation>
+
+      {/* Smart Automation */}
+      <ScrollAnimation delay={0.3}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-center"
+        >
+          <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Smart Automation</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">
+            SKYNET Pro Is Intelligent Software That Automates Invoice Streamlines Operations And Reduces Manual Business Management.
+          </p>
+        </motion.div>
+      </ScrollAnimation>
+    </div>
+
+    {/* Bottom Row - 2 Features (Centered) */}
+     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      {/* Reliability */}
+      <ScrollAnimation delay={0.4}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-center"
+        >
+          <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Reliability</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">
+            SKYNET Pro Keeps Your Business Running Online Managing Tables, Payments, Bills, And Kitchen Operations Even During Uninterrupted Events.
+          </p>
+        </motion.div>
+      </ScrollAnimation>
+
+      {/* Security */}
+      <ScrollAnimation delay={0.5}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-center"
+        >
+          <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+            <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Security</h3>
+          <p className="text-gray-600 text-sm leading-relaxed">
+            Our Table System Is Carefully Designed By Our Talented Software And Network Engineers To Be Secure And Safe To Protect All Your Business Data And Secure Team For The Future.
+          </p>
+        </motion.div>
+      </ScrollAnimation>
+            {/* Operations */}
+<ScrollAnimation delay={0.5}>
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8, delay: 0.5 }}
+    className="text-center"
+  >
+    <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+      <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+      </svg>
+    </div>
+    <h3 className="text-xl font-bold text-gray-900 mb-4">Operations</h3>
+    <div className="text-gray-600 text-sm leading-relaxed text-left mx-auto max-w-xs">
+      <ul className="space-y-2">
+        <li className="flex items-start">
+          <span className="text-blue-600 mr-2">•</span>
+          <span>Student Management</span>
+        </li>
+        <li className="flex items-start">
+          <span className="text-blue-600 mr-2">•</span>
+          <span>Student Attendance</span>
+        </li>
+        <li className="flex items-start">
+          <span className="text-blue-600 mr-2">•</span>
+          <span>Performance Tracking</span>
+        </li>
+        <li className="flex items-start">
+          <span className="text-blue-600 mr-2">•</span>
+          <span>Performance Report</span>
+        </li>
+        <li className="flex items-start">
+          <span className="text-blue-600 mr-2">•</span>
+          <span>Inventory Management</span>
+        </li>
+        <li className="flex items-start">
+          <span className="text-blue-600 mr-2">•</span>
+          <span>HR/Accounts</span>
+        </li>
+      </ul>
+    </div>
+  </motion.div>
+</ScrollAnimation>
+    </div>
+  </div>
+</section>
 
         {/* Ready to Transform Your Business Section */}
         <section className="bg-white py-16 md:py-20 rounded-3xl relative overflow-hidden mb-16">
@@ -303,11 +351,8 @@ export default function StarsIMS() {
                 <ScrollAnimation delay={0.4}>
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                     <motion.img
-                      src="src/assets/business-transformation.png"
+                      src={business}
                       alt="Business Transformation"
-                      className="w-full h-64 md:h-80 object-cover"
-                      whileHover={{ scale: 1.03 }}
-                      transition={{ duration: 0.3 }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   </div>
