@@ -8,7 +8,7 @@ import StarsIMS from "../assets/StarsIMS.png";
 import PopupImage from "../assets/popup-image.png";
 import TransformImage from "../assets/business-transformation.png";
 import WorldMap from "../assets/world-dots.png";
-import Marians from "../assets/marians.png";
+// import Marians from "../assets/marians.png";
 import Avenra from "../assets/avenra.png";
 import Mobitel from "../assets/mobitel.png";
 import School from "../assets/school.png";
@@ -1081,13 +1081,13 @@ export default function Home() {
                             className="object-contain transition-all duration-500 mx-auto"
                           />
                         </div>
-                        <div className="px-2 flex justify-center items-center h-full">
+                        {/* <div className="px-2 flex justify-center items-center h-full">
                           <img
                             src={Marians}
                             alt="Marians"
                             className="object-contain transition-all duration-500 mx-auto"
                           />
-                        </div>
+                        </div> */}
                         <div className="px-2 flex justify-center items-center h-full">
                           <img
                             src={Mobitel}

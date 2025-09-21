@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 
-import mariyans from "../assets/marians.png";
+// import mariyans from "../assets/marians.png";
 import dushan from "../assets/dushan.jpg";
 import zamgems from "../assets/zam gems.jpg";
 import rohanwine from "../assets/rohan wine.jpg";
@@ -11,12 +11,12 @@ import hemas from "../assets/hemas.jpg";
 
 // Section data
 const sections = [
-  {
-    title: "Mariyans",
-    description:
-      "Mariyans Music Group providing complete music solutions with high-quality recordings, modern studio facilities, customized compositions, timely releases, project management, and intelligent reporting.",
-    imgSrc: mariyans,
-  },
+  // {
+  //   title: "Mariyans",
+  //   description:
+  //     "Mariyans Music Group providing complete music solutions with high-quality recordings, modern studio facilities, customized compositions, timely releases, project management, and intelligent reporting.",
+  //   imgSrc: mariyans,
+  // },
   {
     title: "Dushan Jayathilaka",
     description:
