@@ -2,8 +2,8 @@ import Navbar from '../components/Navbar.jsx'
 import Footer from '../components/Footer.jsx'
 import { motion } from 'framer-motion'
 import hero from '../assets/sky-logo.png'
-import schoolImg from '../assets/school.png'
-import churchImg from '../assets/smc.png'
+import schoolImg from '../assets/school.jpg'
+import churchImg from '../assets/smc.jpg'
 
 export default function Charity() {
   return (
@@ -70,7 +70,7 @@ export default function Charity() {
               </svg>
               <div className="w-full max-w-md aspect-square overflow-hidden rounded-[200px] rounded-tl-[120px] border-4 border-white shadow">
                 <img
-                  src={schoolImg}
+                  src={smc}
                   alt="St. Mary's College"
                   className="h-full w-full object-cover"
                 />
