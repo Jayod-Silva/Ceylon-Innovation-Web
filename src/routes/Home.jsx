@@ -504,7 +504,7 @@ export default function Home() {
         </section>
 
         {/* Content wrapper */}
-        <div className="px-5 md:px-6 lg:px-8 xl:px-10 mt-8 md:mt-12 lg:mt-16 mx-1 sm:mx-2 md:mx-4 lg:mx-8">
+        <div className="px-5 md:px-6 lg:px-8 xl:px-10 mt-8 md:mt-16 lg:mt-16 mx-1 sm:mx-2 md:mx-4 lg:mx-8">
           {/* Features Section */}
           <motion.section
             ref={featuresAnimation.ref}
