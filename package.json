@@ -12,16 +12,22 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.1.13",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.11.17",
+    "gsap": "^3.13.0",
     "lucide-react": "^0.544.0",
     "react": "^19.1.1",
+    "react-bits": "^1.0.5",
     "react-countup": "^6.5.3",
     "react-dom": "^19.1.1",
     "react-icons": "^5.5.0",
     "react-intersection-observer": "^9.16.0",
     "react-router-dom": "^6.27.0",
+    "react-scroll": "^1.9.3",
     "react-slick": "^0.31.0",
     "slick-carousel": "^1.8.1",
+    "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
@@ -33,6 +39,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
-    "vite": "^7.1.2"
+    "tw-animate-css": "^1.3.8",
+    "vite": "^7.1.2",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }

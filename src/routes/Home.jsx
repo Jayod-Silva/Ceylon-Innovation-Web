@@ -1,21 +1,219 @@
-import { useState, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { useRef } from 'react';
-import SkynetPro from '../assets/skynet-pro.png';
-import SkynetRetail from '../assets/skynet-retail.png';
-import HealthcareIMS from '../assets/healthcare-ims.png';
-import StarsIMS from '../assets/stars-ims.png';
-import PopupImage from '../assets/popup-image.png';
-import TransformImage from '../assets/business-transformation.png';
+import { useState, useEffect, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import SkynetPro from "../assets/skynet-pro.png";
+import SkynetRetail from "../assets/skynet-retail.png";
+import HealthcareIMS from "../assets/HealthcareIMS.png";
+import StarsIMS from "../assets/StarsIMS.png";
+import PopupImage from "../assets/popup-image.png";
+import TransformImage from "../assets/business-transformation.png";
+import WorldMap from "../assets/world-dots.png";
+import Marians from "../assets/marians.png";
+import Avenra from "../assets/avenra.png";
+import Mobitel from "../assets/mobitel.png";
+import School from "../assets/school.png";
+import SMC from "../assets/smc.png";
 
-import Navbar from '../components/Navbar.jsx';
-import Footer from '../components/Footer.jsx';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+
+import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
-import CountUp from 'react-countup';
+import CountUp from "react-countup";
+
+// Enhanced Tech Vibe Floating Particles Component
+const TechParticles = () => {
+  const canvasRef = useRef(null);
+  const particlesRef = useRef([]);
+  const animationFrameRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    // Enhanced Particle class with tech vibe
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1; // Slightly larger particles
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+        this.color = `rgba(${Math.random() * 50 + 59}, ${Math.random() * 50 + 130}, ${Math.random() * 50 + 246}, ${Math.random() * 0.5 + 0.3})`;
+        this.angle = 0;
+        this.pulse = 0;
+        this.pulseSpeed = Math.random() * 0.05 + 0.01;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        
+        // Add subtle pulsing effect
+        this.angle += this.pulseSpeed;
+        this.pulse = Math.sin(this.angle) * 0.5 + 0.5;
+
+        if (this.x > canvas.width + 5 || this.x < -5) {
+          this.speedX = -this.speedX;
+        }
+        if (this.y > canvas.height + 5 || this.y < -5) {
+          this.speedY = -this.speedY;
+        }
+      }
+
+      draw() {
+        // Draw glow effect
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+        
+        // Draw main particle with pulse effect
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size * (0.8 + this.pulse * 0.4), 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Draw inner highlight for tech look
+        ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
+        ctx.beginPath();
+        ctx.arc(
+          this.x - this.size * 0.3, 
+          this.y - this.size * 0.3, 
+          this.size * 0.3, 
+          0, 
+          Math.PI * 2
+        );
+        ctx.fill();
+        
+        ctx.shadowBlur = 0;
+      }
+    }
+
+    // Initialize particles
+    const initParticles = () => {
+      particlesRef.current = [];
+      const particleCount = Math.min(80, Math.floor(window.innerWidth / 20));
+      
+      for (let i = 0; i < particleCount; i++) {
+        particlesRef.current.push(new Particle());
+      }
+    };
+
+    // Draw connection lines with tech-inspired pattern
+    const drawConnections = () => {
+      for (let i = 0; i < particlesRef.current.length; i++) {
+        for (let j = i + 1; j < particlesRef.current.length; j++) {
+          const p1 = particlesRef.current[i];
+          const p2 = particlesRef.current[j];
+          
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 150) {
+            // Create tech-style connection with gradient
+            const gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
+            gradient.addColorStop(0, p1.color);
+            gradient.addColorStop(1, p2.color);
+            
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 0.8;
+            
+            // Draw dotted line for tech look
+            ctx.setLineDash([3, 3]);
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            // Draw connection nodes
+            ctx.fillStyle = p1.color;
+            ctx.beginPath();
+            ctx.arc(p1.x, p1.y, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.fillStyle = p2.color;
+            ctx.beginPath();
+            ctx.arc(p2.x, p2.y, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+      }
+    };
+
+    // Draw network grid in the background
+    const drawGrid = () => {
+      const gridSize = 50;
+      const offsetX = (Date.now() / 100) % gridSize;
+      const offsetY = (Date.now() / 100) % gridSize;
+      
+      ctx.strokeStyle = "rgba(59, 130, 246, 0.05)";
+      ctx.lineWidth = 0.5;
+      
+      // Draw horizontal lines
+      for (let y = offsetY; y < canvas.height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+      
+      // Draw vertical lines
+      for (let x = offsetX; x < canvas.width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+    };
+
+    // Animation loop
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw background grid
+      drawGrid();
+
+      particlesRef.current.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+
+      // Draw connections between particles
+      drawConnections();
+
+      animationFrameRef.current = requestAnimationFrame(animate);
+    };
+
+    initParticles();
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animationFrameRef.current);
+      window.removeEventListener("resize", resizeCanvas);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-40"
+    />
+  );
+};
 
 // Animation component for scroll-triggered animations
 const ScrollAnimation = ({ children, delay = 0, className = "" }) => {
@@ -44,9 +242,9 @@ const ScrollAnimation = ({ children, delay = 0, className = "" }) => {
           transition: {
             duration: 0.8,
             ease: "easeOut",
-            delay: delay
-          }
-        }
+            delay: delay,
+          },
+        },
       }}
       className={className}
     >
@@ -74,25 +272,25 @@ const useScrollAnimation = (threshold = 0.1) => {
 
 // Updated slideUpVariants
 const slideUpVariants = {
-  hidden: { 
+  hidden: {
     opacity: 0,
-    y: 50
+    y: 50,
   },
-  visible: { 
+  visible: {
     opacity: 1,
-    y: 0, 
-    transition: { 
-      duration: 0.8, 
-      ease: "easeOut" 
-    } 
-  }
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
 };
 
 export default function Home() {
   const [showPopup, setShowPopup] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
-  
+
   // Check screen size on mount and resize
   useEffect(() => {
     const checkScreenSize = () => {
@@ -100,11 +298,11 @@ export default function Home() {
       setIsMobile(width < 768);
       setIsTablet(width >= 768 && width < 1024);
     };
-    
+
     checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    
-    return () => window.removeEventListener('resize', checkScreenSize);
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
   // Updated to use the new scroll animation approach
@@ -113,15 +311,17 @@ export default function Home() {
   const sliderAnimation = useScrollAnimation(0.1);
   const transformAnimation = useScrollAnimation(0.1);
 
-  const [activeProductTab, setActiveProductTab] = useState('pro');
+  const [activeProductTab, setActiveProductTab] = useState("pro");
   const productTabs = [
-    { id: 'pro', label: 'SKYNET Pro' },
-    { id: 'retail', label: 'SKYNET Retail' },
-    { id: 'health', label: 'HEALTHCARE IMS' },
-    { id: 'stars', label: 'STARS IMS' },
+    { id: "pro", label: "SKYNET Pro" },
+    { id: "retail", label: "SKYNET Retail" },
+    { id: "health", label: "HEALTHCARE IMS" },
+    { id: "stars", label: "STARS IMS" },
   ];
-  const activeProductIndex = productTabs.findIndex(t => t.id === activeProductTab);
-  
+  const activeProductIndex = productTabs.findIndex(
+    (t) => t.id === activeProductTab
+  );
+
   const settings = {
     dots: false,
     infinite: true,
@@ -133,9 +333,9 @@ export default function Home() {
     pauseOnHover: false,
     arrows: false,
     centerMode: true,
-    centerPadding: isMobile ? '20px' : '80px',
+    centerPadding: isMobile ? "20px" : "80px",
     focusOnSelect: true,
-    cssEase: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    cssEase: "cubic-bezier(0.4, 0, 0.2, 1)",
     responsive: [
       {
         breakpoint: 1024,
@@ -143,7 +343,7 @@ export default function Home() {
           slidesToShow: 2,
           slidesToScroll: 1,
           centerMode: true,
-          centerPadding: '40px',
+          centerPadding: "40px",
         },
       },
       {
@@ -152,62 +352,78 @@ export default function Home() {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: true,
-          centerPadding: '20px',
+          centerPadding: "20px",
         },
       },
     ],
   };
-  
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPopup(true);
     }, 8000);
-  
+
     return () => clearTimeout(timer);
   }, []);
-  
+
   return (
-    <div className="min-h-screen flex flex-col bg-white "
-    style={{ fontFamily: 'Poppins, sans-serif' }}>
+    <div
+      className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden"
+      style={{ fontFamily: "Poppins, sans-serif" }}
+    >
+      {/* Enhanced Tech Particles Background */}
+      <TechParticles />
+      
       {/* Floating Navbar */}
       <div className="fixed top-0 left-0 right-0 z-50">
         <Navbar />
       </div>
 
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         {/* Hero Section */}
+
         <section className="relative z-0 min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 rounded-b-[2rem] md:rounded-b-[3rem] lg:rounded-b-[4rem] overflow-hidden mt-[-200px] md:mt-[-100px] lg:mt-0">
-          <video className="absolute inset-0 object-cover w-full h-full rounded-b-[2rem] md:rounded-b-[3rem] lg:rounded-b-[4rem]" autoPlay loop muted playsInline>
+          <video
+            id="Home"
+            className="absolute inset-0 object-cover w-full h-full rounded-b-[2rem] md:rounded-b-[3rem] lg:rounded-b-[4rem]"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
             <source src="/landing.mp4" type="video/mp4" />
           </video>
 
-          <div className="absolute inset-0 w-full h-full bg-black/40 z-10 pointer-events-none"></div>
+          <div className="absolute inset-0 w-full h-full bg-black/60 z-10 pointer-events-none"></div>
 
           {/* Hero Content */}
           <div className="relative z-20 w-full px-4 sm:px-6 md:px-12 lg:px-20">
             <div className="max-w-7xl mx-auto text-center mt-[15rem] sm:mt-[18rem] md:mt-[12rem] lg:mt-0">
-              <motion.h1 
+              <motion.h1
                 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight px-2"
-                style={{ fontFamily: 'Roboto, sans-serif' }}
+                style={{ fontFamily: "Roboto, sans-serif" }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                Innovate Your Business Future With<br />
+                Innovate Your Business Future With
+                <br />
                 <span className="text-cyan-400">Ceylon Innovation</span>
               </motion.h1>
-              
-              <motion.p 
+
+              <motion.p
                 className="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 mb-6 sm:mb-8 leading-relaxed max-w-4xl mx-auto px-2 sm:px-4 mt-4"
-                style={{ fontFamily: 'Poppins, sans-serif' }}
+                style={{ fontFamily: "Poppins, sans-serif" }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                We Provide Cutting-Edge Technology Solutions Tailored To Your Business Needs. From ERP System To Mobile Apps, We've Got You Covered
+                We Provide Cutting-Edge Technology Solutions Tailored To Your
+                Business Needs. From ERP System To Mobile Apps, We've Got You
+                Covered
               </motion.p>
-              
-              <motion.div 
+
+              <motion.div
                 className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-6 sm:mt-8 md:mt-10"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -215,7 +431,7 @@ export default function Home() {
               >
                 <motion.button
                   className="bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-300 hover:from-blue-600 hover:to-cyan-400 text-white px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-full font-medium transition-colors text-xs sm:text-sm md:text-base"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                  style={{ fontFamily: "Poppins, sans-serif" }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -224,7 +440,7 @@ export default function Home() {
 
                 <motion.button
                   className="text-white hover:text-gray-300 px-4 py-2 sm:px-5 sm:py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 text-xs sm:text-sm md:text-base mt-3 sm:mt-0 mb-12 sm:mb-0"
-                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                  style={{ fontFamily: "Poppins, sans-serif" }}
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
@@ -236,7 +452,7 @@ export default function Home() {
 
           {/* Statistics Panel */}
           <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-40 w-full max-w-4xl px-4">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -245,8 +461,14 @@ export default function Home() {
                 <div className="grid grid-cols-3 gap-3 sm:gap-5 md:gap-8 text-center">
                   <ScrollAnimation delay={0.1}>
                     <div>
-                      <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-1 sm:mb-2">
-                        <CountUp start={0} end={1000} duration={2.5} separator="," />+
+                      <div className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-regular text-white mb-1 sm:mb-2">
+                        <CountUp
+                          start={0}
+                          end={1000}
+                          duration={2.5}
+                          separator=","
+                        />
+                        +
                       </div>
                       <div className="text-xs sm:text-sm text-gray-300">
                         Software Installations
@@ -256,7 +478,7 @@ export default function Home() {
 
                   <ScrollAnimation delay={0.3}>
                     <div>
-                      <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-1 sm:mb-2">
+                      <div className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-regular text-white mb-1 sm:mb-2">
                         <CountUp start={0} end={10} duration={6} />+
                       </div>
                       <div className="text-xs sm:text-sm text-gray-300">
@@ -267,7 +489,7 @@ export default function Home() {
 
                   <ScrollAnimation delay={0.2}>
                     <div>
-                      <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-1 sm:mb-2">
+                      <div className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-regular text-white mb-1 sm:mb-2">
                         <CountUp start={0} end={25} duration={4} />+
                       </div>
                       <div className="text-xs sm:text-sm text-gray-300">
@@ -280,43 +502,52 @@ export default function Home() {
             </motion.div>
           </div>
         </section>
-      
+
         {/* Content wrapper */}
-        <div className="px-4 sm:px-5 md:px-6 lg:px-8 xl:px-10 mt-8 sm:mt-10 md:mt-12 lg:mt-16 mx-1 sm:mx-2 md:mx-4 lg:mx-8">
+        <div className="px-5 md:px-6 lg:px-8 xl:px-10 mt-8 md:mt-12 lg:mt-16 mx-1 sm:mx-2 md:mx-4 lg:mx-8">
           {/* Features Section */}
-          <motion.section 
+          <motion.section
             ref={featuresAnimation.ref}
             animate={featuresAnimation.controls}
-            variants={slideUpVariants} 
+            variants={slideUpVariants}
             initial="hidden"
-            className="bg-white max-w-7xl mx-auto py-8 sm:py-10 md:py-12 lg:py-16"
+            className=" backdrop-blur-sm max-w-7xl mx-auto py-8 sm:py-10 md:py-12 lg:py-16 rounded-2xl"
           >
             <ScrollAnimation delay={0.1}>
               <div className="flex flex-col lg:flex-row items-start justify-between mb-6 sm:mb-8 md:mb-10 lg:mb-12 gap-4 sm:gap-6">
                 <div className="lg:max-w-2xl">
-                  <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900 mb-3 sm:mb-4 leading-tight"
-                   style={{ fontFamily: 'Roboto, sans-serif' }}>
-                    <span className="text-cyan-500">Innovative Features</span> Our Company<br /> Delivers To You
+                  <h1
+                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900 mb-3 sm:mb-4 md:ml-10 text-center md:text-left leading-tight"
+                    style={{ fontFamily: "Roboto, sans-serif" }}
+                  >
+                    <span className="text-gradient-to-r from-blue-500 via-blue-400 to-cyan-300">Innovative Features</span>{" "}
+                    Our Company
+                    <br /> Delivers To You
                   </h1>
                 </div>
-                <div className="text-gray-500 text-sm sm:text-base md:text-md lg:max-w-md lg:text-right">
-                  We Always Take Care Of Our Clients. Comfort Of Our Clients With Technology And Innovation
+                <div className="text-gray-500 text-sm sm:text-base md:text-md lg:max-w-md lg:text-right mr-10">
+                  We Always Take Care Of Our Clients. Comfort Of Our Clients
+                  With Technology And Innovation
                 </div>
               </div>
             </ScrollAnimation>
 
-            <div className="py-8 sm:py-10 md:py-12 px-2 sm:px-4">
+            <div className="py-8 sm:py-10 md:py-2 px-2 sm:px-4">
               <div className="flex justify-center items-center">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-6xl w-full">
                   {/* Responsibility Card */}
                   <ScrollAnimation delay={0.1}>
                     <motion.div
-                      className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-sm hover:shadow-md md:hover:shadow-xl transition-shadow cursor-pointer h-full"
+                      className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-sm hover:shadow-md md:hover:shadow-xl transition-shadow cursor-pointer h-full border border-blue-100"
                       whileHover={{
                         y: -5,
                         scale: 1.02,
                         boxShadow: "0 10px 25px rgba(33,105,176,0.15)",
-                        transition: { type: "spring", stiffness: 250, damping: 20 },
+                        transition: {
+                          type: "spring",
+                          stiffness: 250,
+                          damping: 20,
+                        },
                       }}
                     >
                       <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-blue-50 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 md:mb-5">
@@ -334,12 +565,15 @@ export default function Home() {
                           />
                         </svg>
                       </div>
-                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">Responsibility</h3>
-                      <p className="text-gray-500 text-xs sm:text-sm md:text-[14.5px] leading-6 sm:leading-7 mb-3 sm:mb-4 md:mb-5 text-justify">
-                        We take full responsibility in delivering secure, ethical, and reliable IT
-                        solutions. Every project is handled with accountability, transparency,
-                        and complete ownership, ensuring that our clients receive nothing less
-                        than excellence.
+                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mt-5">
+                        Responsibility
+                      </h3>
+                      <p className="text-gray-500 text-xs sm:text-sm md:text-md leading-7 text-justify md:mt-5">
+                        We take full responsibility in delivering secure,
+                        ethical, and reliable IT solutions. Every project is
+                        handled with accountability, transparency, and complete
+                        ownership, ensuring that our clients receive nothing
+                        less than excellence.
                       </p>
                     </motion.div>
                   </ScrollAnimation>
@@ -347,12 +581,16 @@ export default function Home() {
                   {/* Bespoke Card */}
                   <ScrollAnimation delay={0.2}>
                     <motion.div
-                      className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 cursor-pointer h-full"
+                      className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 cursor-pointer h-full border border-blue-100"
                       whileHover={{
                         y: -5,
                         scale: 1.02,
                         boxShadow: "0 10px 25px rgba(33,105,176,0.15)",
-                        transition: { type: "spring", stiffness: 250, damping: 20 },
+                        transition: {
+                          type: "spring",
+                          stiffness: 250,
+                          damping: 20,
+                        },
                       }}
                     >
                       <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-blue-50 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 md:mb-5">
@@ -370,12 +608,15 @@ export default function Home() {
                           />
                         </svg>
                       </div>
-                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">Bespoke</h3>
-                      <p className="text-gray-600 text-xs sm:text-sm md:text-[14.5px] leading-6 sm:leading-7 mb-3 sm:mb-4 md:mb-5 text-justify">
-                        Every business is unique, and so are our solutions. We design and
-                        develop custom IT systems that align seamlessly with your goals,
-                        workflows, and long-term vision. From tailored applications to
-                        specialized integrations.
+                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mt-5">
+                        Bespoke
+                      </h3>
+                      <p className="text-gray-600 text-xs sm:text-sm md:text-[14.5px] leading-6 sm:leading-7 mb-3 sm:mb-4 md:mb-5 text-justify md:mt-5">
+                        Every business is unique, and so are our solutions. We
+                        design and develop custom IT systems that align
+                        seamlessly with your goals, workflows, and long-term
+                        vision. From tailored applications to specialized
+                        integrations.
                       </p>
                     </motion.div>
                   </ScrollAnimation>
@@ -383,12 +624,16 @@ export default function Home() {
                   {/* Innovation Card */}
                   <ScrollAnimation delay={0.3}>
                     <motion.div
-                      className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 cursor-pointer h-full"
+                      className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 cursor-pointer h-full border border-blue-100"
                       whileHover={{
                         y: -5,
                         scale: 1.02,
                         boxShadow: "0 10px 25px rgba(33,105,176,0.15)",
-                        transition: { type: "spring", stiffness: 250, damping: 20 },
+                        transition: {
+                          type: "spring",
+                          stiffness: 250,
+                          damping: 20,
+                        },
                       }}
                     >
                       <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-blue-50 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 md:mb-5">
@@ -406,12 +651,15 @@ export default function Home() {
                           />
                         </svg>
                       </div>
-                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">Innovation Service</h3>
-                      <p className="text-gray-600 text-xs sm:text-sm md:text-[14.5px] leading-6 sm:leading-7 mb-3 sm:mb-4 md:mb-5 text-justify">
-                        We thrive on innovation by blending creativity with cutting-edge
-                        technology. Our solutions are designed to be future-ready, leveraging
-                        the latest tools, frameworks, and best practices in the industry. We
-                        bring fresh ideas to every project.
+                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 mb-2 sm:mb-3 md:mt-5">
+                        Innovation Service
+                      </h3>
+                      <p className="text-gray-600 text-xs sm:text-sm md:text-[14.5px] leading-6 sm:leading-7 mb-3 sm:mb-4 md:mb-5 text-justify md:mt-5">
+                        We thrive on innovation by blending creativity with
+                        cutting-edge technology. Our solutions are designed to
+                        be future-ready, leveraging the latest tools,
+                        frameworks, and best practices in the industry. We bring
+                        fresh ideas to every project.
                       </p>
                     </motion.div>
                   </ScrollAnimation>
@@ -421,18 +669,19 @@ export default function Home() {
           </motion.section>
 
           {/* Products Section */}
-          <motion.section 
+          <motion.section
+            id="products"
             ref={productsAnimation.ref}
             animate={productsAnimation.controls}
-            variants={slideUpVariants} 
+            variants={slideUpVariants}
             initial="hidden"
-            className="bg-white w-full py-8 sm:py-10 md:py-12 relative z-10"
+            className="backdrop-blur-sm w-full py-8 sm:py-10 md:py-12 relative z-10 mt-[-50px] "
           >
             <div className="max-w-7xl mx-auto py-6 sm:py-8 md:py-10 rounded-2xl sm:rounded-3xl">
               <ScrollAnimation delay={0.1}>
                 <div className="text-center mb-6 sm:mb-8 md:mb-10">
                   <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900 leading-tight">
-                    Our <span className="text-cyan-500">Products</span>
+                    Our <span className="text-blue-400">Products</span>
                   </h2>
                   <p className="text-gray-600 text-xs sm:text-sm md:text-base mt-2 sm:mt-3 max-w-2xl mx-auto px-2">
                     We have many products For You with Affordable Price
@@ -468,7 +717,11 @@ export default function Home() {
                         }%`,
                         width: `${100 / productTabs.length}%`,
                       }}
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 400,
+                        damping: 30,
+                      }}
                       style={{ left: 0, width: `${100 / productTabs.length}%` }}
                     />
                   </div>
@@ -503,9 +756,7 @@ export default function Home() {
                       />
                     </div>
                     <div className="p-3 sm:p-4 md:p-5">
-                      <p
-                        className="text-xs sm:text-sm md:text-[14.5px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4"
-                      >
+                      <p className="text-xs sm:text-sm md:text-[14px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4">
                         SKYNET Pro uses the latest technology to manage entire
                         hospitality businesses. Supports large-scale operations
                         and handles unlimited transactions seamlessly and
@@ -547,10 +798,11 @@ export default function Home() {
                       />
                     </div>
                     <div className="p-3 sm:p-4 md:p-5">
-                      <p className="text-xs sm:text-sm md:text-[14.5px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4">
-                        SKYNET Retail software is designed for retailed business such as salons,
-                        supermarkets, liquor stores, clothing stores. It enables
-                        smooth transactions and improves customer service.
+                      <p className="text-xs sm:text-sm md:text-[14px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4">
+                        SKYNET Retail software is designed for retailed business
+                        such as salons, supermarkets, liquor stores, clothing
+                        stores. It enables smooth transactions and improves
+                        customer service.
                       </p>
                       <Link
                         to="/skynet-retail"
@@ -588,10 +840,10 @@ export default function Home() {
                       />
                     </div>
                     <div className="p-3 sm:p-4 md:p-5">
-                      <p className="text-xs sm:text-sm md:text-[14.5px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4">
+                      <p className="text-xs sm:text-sm md:text-[14px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4">
                         HEALTHCARE IMS supports hospitals, clinics, labs and
-                        pharmacies of any size. Fully customizable to fit specific
-                        customer. All user data is securely stored.
+                        pharmacies of any size. Fully customizable to fit
+                        specific customer. All user data is securely stored.
                       </p>
                       <Link
                         to="/healthcare-ims"
@@ -629,10 +881,11 @@ export default function Home() {
                       />
                     </div>
                     <div className="p-3 sm:p-4 md:p-5">
-                      <p className="text-xs sm:text-sm md:text-[14.5px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4">
-                        STARS IMS is unique software designed for schools, tutors,
-                        colleges and universities. Built with secure technology,
-                        advanced features, and carefully tailored for education.
+                      <p className="text-xs sm:text-sm md:text-[14px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4">
+                        STARS IMS is unique software designed for schools,
+                        tutors, colleges and universities. Built with secure
+                        technology, advanced features, and carefully tailored
+                        for education.
                       </p>
                       <Link
                         to="/stars-ims"
@@ -647,117 +900,230 @@ export default function Home() {
             </div>
           </motion.section>
 
-          {/* Enhanced Superb Slider Section with Center-focused Carousel */}
-          <motion.section 
-            ref={sliderAnimation.ref}
-            animate={sliderAnimation.controls}
-            variants={slideUpVariants} 
-            initial="hidden"
-            className="bg-white max-w-7xl mx-auto py-8 sm:py-10 md:py-12 lg:py-16 relative overflow-hidden rounded-2xl sm:rounded-3xl mt-8 sm:mt-10 md:mt-12 lg:mt-16"
-          >
-            {/* Dotted World Map Background */}
-            <div className="absolute inset-0 opacity-5">
-              <svg width="100%" height="100%" viewBox="0 0 1200 600" className="w-full h-full">
-                <defs>
-                  <pattern id="worldDots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <circle cx="10" cy="10" r="1" fill="#94a3b8"/>
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#worldDots)"/>
-                <g fill="none" stroke="#64748b" strokeWidth="1" strokeDasharray="3,3" opacity="0.3">
-                  <path d="M200 150 Q300 120 400 150 T600 160 L700 180 Q800 160 900 170"/>
-                  <path d="M150 200 Q250 180 350 200 T550 210 L650 230"/>
-                  <path d="M100 300 Q200 280 300 300 T500 310 L600 330 Q700 310 800 320"/>
-                  <path d="M180 400 Q280 380 380 400 T580 410"/>
-                </g>
-              </svg>
+          <ScrollAnimation delay={0.1}>
+            <div className="text-center mb-8 md:mb-10 md:mt-10 px-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight z-10">
+                Organizations Achieving Growth Using
+                <br />
+                <span className="text-blue-400">Our Product Solutions</span>
+              </h2>
+              <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto mt-4">
+                Trusted by leading companies worldwide to deliver exceptional
+                digital transformation results
+              </p>
             </div>
-            
-            <div className="relative z-10 px-3 sm:px-4 md:px-6">
-              <ScrollAnimation delay={0.1}>
-                <div className="text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
-                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight px-2 sm:px-4">
-                    Organizations Achieving Growth Using Our Product Solutions
-                  </h2>
-                </div>
-              </ScrollAnimation>
 
-              <div className="mx-auto max-w-5xl lg:max-w-6xl relative">
-                <div className="center-mode-carousel px-1 sm:px-2 py-6 sm:py-8">
-                  <Slider 
-                    centerMode={true}
-                    centerPadding={isMobile ? "40px" : isTablet ? "50px" : "60px"}
-                    infinite={true}
-                    slidesToShow={isMobile ? 1 : isTablet ? 2 : 3}
-                    speed={500}
-                    autoplay={true}
-                    autoplaySpeed={3000}
-                    className="center-slider"
-                  >
-                    {[
-                      { src: "src/assets/avenra.png", alt: "Avenra" },
-                      { src: "src/assets/marians.png", alt: "Marians" },
-                      { src: "src/assets/mobitel.png", alt: "Mobitel" },
-                      { src: "src/assets/school.jpg", alt: "School" },
-                      { src: "src/assets/smc.jpg", alt: "SMC" }
-                    ].map((item, index) => (
-                      <div key={index} className="px-1 sm:px-2">
-                        <div className="logo-container flex justify-center items-center h-24 sm:h-28 md:h-32 lg:h-36 transition-all duration-300 transform hover:scale-105">
+            <ScrollAnimation delay={0.5}>
+              {/* Enhanced Superb Slider Section with Perfectly Centered Logos */}
+              <section className="backdrop-blur-sm max-w-7xl mx-auto py-12 md:py-30 relative overflow-hidden min-h-[500px] flex items-center z-20">
+                <div className="absolute inset-0 opacity-[0.2] md:opacity-[0.1]">
+                  <img
+                    src={WorldMap}
+                    alt="World Map Background"
+                    className=" w-[100%] md:w-[72%] h-auto object-cover  md:ml-[15%]  mt-10"
+                  />
+                </div>
+
+                <div className="relative z-10 w-full">
+                  <div className="mx-auto max-w-6xl mt-[-210px] md:mt-0 relative h-80 flex items-center justify-center pl-15 md:pl-47">
+                    <style>
+                      {`
+                    .superb-carousel { 
+                      position: relative; 
+                      padding: 30px 0; 
+                      width: 100%;
+                    }
+                    .slick-list {
+                      padding: 10px 0 !important;
+                      overflow: visible !important;
+                    }
+                    .slick-track {
+                      display: flex !important;
+                      align-items: center !important;
+                    }
+                    .slick-slide { 
+                      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+                      transform: scale(0.8) translateY(20px); 
+                      opacity: 0.5; 
+                      filter: blur(2px) grayscale(0.7); 
+                      display: flex !important;
+                      justify-content: center;
+                      align-items: center;
+                      height: 100%;
+                      transform-origin: center center;
+                    }
+                    .slick-slide.slick-active { 
+                      opacity: 0.8; 
+                      transform: scale(0.9) translateY(10px); 
+                      filter: blur(1px) grayscale(0.3); 
+                    }
+                    .slick-center { 
+                      transform: scale(1.6) translateY(-5px) !important; 
+                      opacity: 1 !important; 
+                      filter: blur(0px) grayscale(0) !important; 
+                      z-index: 20; 
+                    }
+                    @media (max-width: 640px) {
+                      .slick-slide { transform: scale(0.85) translateY(15px); }
+                      .slick-slide.slick-active { transform: scale(0.95) translateY(8px); }
+                      .slick-center { transform: scale(1.15) translateY(-3px) !important; }
+                    }
+                    .slick-slide > div {
+                      display: flex !important;
+                      justify-content: center;
+                      align-items: center;
+                      height: 100%;
+                      width: 100%;
+                    }
+                    .slick-slide img { 
+                      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+                      position: relative; 
+                      z-index: 2; 
+                      background: transparent; 
+                      margin: 0 auto;
+                      width: auto;
+                      object-fit: contain;
+                      transform-origin: center center;
+                    }
+                    @media (max-width: 640px) {
+                      .slick-slide img { 
+                        max-height: 60px !important; 
+                        max-width: 120px;
+                      }
+                    }
+                    @media (min-width: 641px) and (max-width: 1024) {
+                      .slick-slide img { 
+                        max-height: 80px !important; 
+                        max-width: 160px;
+                      }
+                    }
+                    @media (min-width: 1025px) {
+                      .slick-slide img { 
+                        max-height: 100px !important; 
+                        max-width: 200px;
+                      }
+                    }
+                    .slick-center img {
+                      max-height: 120px !important;
+                    }
+                    @media (max-width: 640px) {
+                      .slick-center img {
+                        max-height: 70px !important;
+                      }
+                    }
+                    .slick-dots { 
+                      bottom: -40px; 
+                      display: flex !important; 
+                      justify-content: center; 
+                      gap: 6px; 
+                    }
+                    @media (min-width: 768px) { 
+                      .slick-dots { bottom: -60px; gap: 8px; } 
+                    }
+                    .slick-dots li { margin: 0; }
+                    .slick-dots li button { 
+                      width: 10px; 
+                      height: 10px; 
+                      border-radius: 50%; 
+                      background: linear-gradient(145deg, #e2e8f0, #cbd5e1); 
+                      border: 2px solid rgba(59, 130, 246, 0.3); 
+                      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+                      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+                    }
+                    @media (min-width: 768px) { 
+                      .slick-dots li button { width: 12px; height: 12px; } 
+                    }
+                    .slick-dots li button:before { display: none; }
+                    .slick-dots li.slick-active button { 
+                      background: #3b82f6; 
+                      border-color: rgba(59, 130, 246, 0.6); 
+                      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); 
+                      transform: scale(1.3); 
+                    }
+                    .slick-dots li:hover button { 
+                      transform: scale(1.2); 
+                      border-color: rgba(59, 130, 246, 0.5); 
+                    }
+                    .slick-center img { 
+                      animation: float 6s ease-in-out infinite; 
+                    }
+                    @keyframes float {
+                      0%, 100% { transform: translateY(0px) rotate(0deg); }
+                      25% { transform: translateY(-5px) rotate(0.5deg); }
+                      50% { transform: translateY(-8px) rotate(0deg); }
+                      75% { transform: translateY(-3px) rotate(-0.5deg); }
+                    }
+                    @media (max-width: 640px) {
+                      @keyframes float {
+                        0%, 100% { transform: translateY(0px); }
+                        25% { transform: translateY(-3px); }
+                        50% { transform: translateY(-5px); }
+                        75% { transform: translateY(-2px); }
+                      }
+                    }
+                  `}
+                    </style>
+
+                    <div className="superb-carousel">
+                      <Slider
+                        {...{
+                          ...settings,
+                          autoplaySpeed: 1000,
+                          speed: 640,
+                          customPaging: (i) => <button />,
+                          beforeChange: (oldIndex, newIndex) => {},
+                        }}
+                      >
+                        <div className="px-2 flex justify-center items-center h-full">
                           <img
-                            src={item.src}
-                            alt={item.alt}
-                            className="object-contain h-12 sm:h-14 md:h-16 lg:h-20 transition-all duration-500 slider-logo"
+                            src={Avenra}
+                            alt="Avenra"
+                            className="object-contain transition-all duration-500 mx-auto"
                           />
                         </div>
-                      </div>
-                    ))}
-                  </Slider>
+                        <div className="px-2 flex justify-center items-center h-full">
+                          <img
+                            src={Marians}
+                            alt="Marians"
+                            className="object-contain transition-all duration-500 mx-auto"
+                          />
+                        </div>
+                        <div className="px-2 flex justify-center items-center h-full">
+                          <img
+                            src={Mobitel}
+                            alt="Mobitel"
+                            className="object-contain transition-all duration-500 mx-auto"
+                          />
+                        </div>
+                        <div className="px-2 flex justify-center items-center h-full">
+                          <img
+                            src={School}
+                            alt="School"
+                            className="object-contain transition-all duration-500 mx-auto"
+                          />
+                        </div>
+                        <div className="px-2 flex justify-center items-center h-full">
+                          <img
+                            src={SMC}
+                            alt="SMC"
+                            className="object-contain transition-all duration-500 mx-auto"
+                          />
+                        </div>
+                      </Slider>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-
-            {/* Custom styles for the center mode slider */}
-            <style jsx>{`
-              .center-slider :global(.slick-center) {
-                transform: scale(1.15);
-                transition: transform 0.5s ease;
-                z-index: 1;
-              }
-              .center-slider :global(.slick-center .slider-logo) {
-                height: 16px !important;
-              }
-              @media (min-width: 640px) {
-                .center-slider :global(.slick-center .slider-logo) {
-                  height: 20px !important;
-                }
-              }
-              @media (min-width: 768px) {
-                .center-slider :global(.slick-center .slider-logo) {
-                  height: 24px !important;
-                }
-              }
-              @media (min-width: 1024px) {
-                .center-slider :global(.slick-center .slider-logo) {
-                  height: 28px !important;
-                }
-              }
-              .center-slider :global(.slick-slide) {
-                transition: transform 0.5s ease, opacity 0.5s ease;
-                opacity: 0.7;
-              }
-              .center-slider :global(.slick-center) {
-                opacity: 1;
-              }
-            `}</style>
-          </motion.section>
+              </section>
+            </ScrollAnimation>
+          </ScrollAnimation>
 
           {/* Ready to Transform Your Business Section */}
-          <motion.section 
+          <motion.section
             ref={transformAnimation.ref}
             animate={transformAnimation.controls}
-            variants={slideUpVariants} 
+            variants={slideUpVariants}
             initial="hidden"
-            className="bg-blue-50 py-8 sm:py-10 md:py-12 lg:py-16 rounded-2xl sm:rounded-3xl relative overflow-hidden my-8 sm:my-10 md:my-12 lg:my-16"
+            className="bg-white py-8 sm:py-10 md:py-12 lg:py-16 rounded-2xl sm:rounded-3xl relative overflow-hidden my-8 sm:my-10 md:my-12 lg:my-16"
           >
             <div className="relative z-10 px-4 sm:px-5 md:px-6 lg:px-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
@@ -768,9 +1134,10 @@ export default function Home() {
                       Ready To Transform Your Business?
                     </h2>
                     <p className="text-gray-600 text-sm sm:text-base md:text-lg mb-4 sm:mb-5 md:mb-6 leading-relaxed">
-                      Let's Discuss Your Project Requirements And Create A Custom Solution That Perfectly Fits Your Business Needs.
+                      Let's Discuss Your Project Requirements And Create A
+                      Custom Solution That Perfectly Fits Your Business Needs.
                     </p>
-                    <motion.button 
+                    <motion.button
                       className="bg-blue-500 hover:bg-blue-600 text-white px-5 sm:px-6 md:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-semibold transition-colors text-xs sm:text-sm md:text-base cursor-pointer"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -782,13 +1149,13 @@ export default function Home() {
 
                 {/* Right Image */}
                 <ScrollAnimation delay={0.2}>
-                  <div className="relative mt-6 sm:mt-8 lg:mt-0 px-2 sm:px-0">
+                  <div className="relative mt-6 sm:mt-8 lg:mt-0 px-2 sm:px-0 md:ml-40">
                     <div className="rounded-xl sm:rounded-2xl overflow-hidden">
                       <img
                         src={TransformImage}
                         alt="Transform Your Business"
-                        className="w-full h-auto object-cover"
-                      />  
+                        className="w-130 h-auto object-cover"
+                      />
                     </div>
                   </div>
                 </ScrollAnimation>
@@ -797,16 +1164,16 @@ export default function Home() {
           </motion.section>
         </div>
       </main>
-      
+
       {/* Popup */}
       {showPopup && (
-        <motion.div 
+        <motion.div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-3 sm:p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          <motion.div 
+          <motion.div
             className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 max-w-xs sm:max-w-sm w-full relative"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -818,15 +1185,17 @@ export default function Home() {
             >
               &times;
             </button>
-                
+
             <img
               src={PopupImage}
               alt="Special Offer"
               className="w-full h-auto object-contain rounded-lg"
             />
-            <p className="text-gray-700 mt-3 sm:mt-4 text-center text-xs sm:text-sm">Check out our latest offer!</p>
+            <p className="text-gray-700 mt-3 sm:mt-4 text-center text-xs sm:text-sm">
+              Check out our latest offer!
+            </p>
             <div className="mt-3 sm:mt-4 flex justify-center">
-              <button 
+              <button
                 className="bg-blue-500 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-sm"
                 onClick={() => setShowPopup(false)}
               >

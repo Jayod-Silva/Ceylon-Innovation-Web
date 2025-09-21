@@ -7,11 +7,11 @@ import logo from '../assets/Colour_Logo.png';
 // Reusable classes
 const navLinkClass = ({ isActive }) =>
   `px-5 py-2 text-base font-medium transition-colors relative ${
-    isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'
+    isActive ? 'text-blue-500' : 'text-gray-700 hover:text-blue-500 hover:underline'
   }`;
 
 const mobileNavLinkClass =
-  'block px-4 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors rounded-lg';
+  'block px-4 py-3 text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50 transition-colors rounded-lg';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -95,69 +95,46 @@ export default function Navbar() {
         {/* Logo */}
         <NavLink to="/" className="flex items-center flex-shrink-0">
           <img
-            src="../assets/Colour_Logo.png"
+            src={logo}
             alt="Ceylon Innovation Logo"
-            className="w-[143px] h-auto ml-5"
+            className="w-[90px] h-auto ml-2 md:w-[140px] md:ml-5"
           />
         </NavLink>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center space-x-1 relative">
           {/* Home */}
-          <NavLink to="/" end className={navLinkClass}>
-            Home
-          </NavLink>
+          <button
+            className="px-6 py-2 text-base font-medium text-gray-700 hover:text-blue-500 flex items-center space-x-1 cursor-pointer"
+            onClick={() => {
+              const section = document.getElementById("Home");
+              if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
+            <span>Home</span>
+          </button>
 
           {/* Products Dropdown */}
-          <div className="relative" ref={productsDropdownRef}>
-            <button
-              className="px-6 py-2 text-base font-medium text-gray-700 hover:text-blue-600 flex items-center space-x-1"
-              onClick={toggleProductsDropdown}
-            >
-              <span>Products</span>
-              <ChevronDown
-                size={16}
-                className={`transform transition-transform ${isProductsOpen ? 'rotate-180' : ''}`}
-              />
-            </button>
-            {isProductsOpen && (
-              <div className="absolute left-0 mt-2 w-64 bg-white/90 backdrop-blur border border-gray-100 rounded-2xl shadow-lg z-50 p-2">
-                <NavLink
-                  to="/skynet-pro"
-                  className="block px-4 py-2 text-base text-gray-800 hover:bg-blue-50 hover:text-blue-600 rounded-lg"
-                  onClick={() => setIsProductsOpen(false)}
-                >
-                  • SkynetPro
-                </NavLink>
-                <NavLink
-                  to="/skynet-retail"
-                  className="block px-4 py-2 text-base text-gray-800 hover:bg-blue-50 hover:text-blue-600 rounded-lg"
-                  onClick={() => setIsProductsOpen(false)}
-                >
-                  • SkynetRetail
-                </NavLink>
-                <NavLink
-                  to="/healthcare-ims"
-                  className="block px-4 py-2 text-base text-gray-800 hover:bg-blue-50 hover:text-blue-600 rounded-lg"
-                  onClick={() => setIsProductsOpen(false)}
-                >
-                  • HealthCareIMS
-                </NavLink>
-                <NavLink
-                  to="/stars-ims"
-                  className="block px-4 py-2 text-base text-gray-800 hover:bg-blue-50 hover:text-blue-600 rounded-lg"
-                  onClick={() => setIsProductsOpen(false)}
-                >
-                  • StarsIMS
-                </NavLink>
-              </div>
-            )}
-          </div>
+          <button
+            className="px-6 py-2 text-base font-medium text-gray-700 hover:text-blue-500 flex items-center space-x-1 cursor-pointer"
+            onClick={() => {
+              const section = document.getElementById("products");
+              if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
+            <span>Products</span>
+          </button>
+
+
 
           {/* Industries Dropdown */}
           <div className="relative" ref={industriesDropdownRef}>
             <button
-              className="px-6 py-2 text-base font-medium text-gray-700 hover:text-blue-600 flex items-center space-x-1"
+              className="px-6 py-2 text-base font-medium text-gray-700 hover:text-blue-500 flex items-center space-x-1 cursor-pointer"
               onClick={toggleIndustriesDropdown}
             >
               <span>Industries</span>
@@ -167,7 +144,7 @@ export default function Navbar() {
               />
             </button>
             {isIndustriesOpen && (
-              <div className="absolute left-0 mt-2 w-64 bg-white/90 backdrop-blur border border-gray-100 rounded-2xl shadow-lg z-50 p-2">
+              <div className="absolute left-0 mt-2 w-64 bg-white/90 backdrop-blur border border-gray-100 rounded-2xl shadow-lg z-50 p-2 cursor-pointer">
                 <NavLink
                   to="/domain/healthcare"
                   className="block px-4 py-2 text-base text-gray-800 hover:bg-blue-50 hover:text-blue-600 rounded-lg"
@@ -251,7 +228,7 @@ export default function Navbar() {
           {/* More Dropdown */}
           <div className="relative" ref={moreDropdownRef}>
             <button
-              className="px-6 py-2 text-base font-medium text-gray-700 hover:text-blue-600 flex items-center space-x-1"
+              className="px-6 py-2 text-base font-medium text-gray-700 hover:text-blue-500 flex items-center space-x-1 cursor-pointer"
               onClick={toggleMoreDropdown}
             >
               <span>More</span>
@@ -438,7 +415,7 @@ export default function Navbar() {
               {/* More Dropdown */}
               <div ref={moreDropdownRef}>
                 <button
-                  className="w-full flex justify-between items-center px-4 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg"
+                  className="w-full flex justify-between items-center px-4 py-3 text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg hover:underline"
                   onClick={toggleMoreDropdown}
                 >
                   <span>More</span>

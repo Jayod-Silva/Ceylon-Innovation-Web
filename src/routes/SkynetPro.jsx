@@ -3,10 +3,6 @@ import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
-import Windoslogo from '../assets/windows-logo.png';
-import skynetProHero from '../assets/skynet-pro-hero.png';
-import skynetProDevices from '../assets/skynet-pro-devices.png';
-
 
 // Animation component for scroll-triggered slide-up animations
 const ScrollAnimation = ({ children, delay = 0, className = "" }) => {
@@ -46,7 +42,7 @@ const ScrollAnimation = ({ children, delay = 0, className = "" }) => {
   );
 };
 
-export default function SkynetPro() {
+export default function StarsIMS() {
   return (
     <div className="min-h-full flex flex-col bg-white">
       {/* Floating Navbar */}
@@ -66,7 +62,7 @@ export default function SkynetPro() {
                 transition={{ duration: 0.8 }}
               >
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-                  <span className="text-blue-600">SKYNET</span> Pro
+                  <span className="text-blue-600">STARS</span> IMS
                 </h1>
 
                 <ScrollAnimation delay={0.2}>
@@ -79,7 +75,7 @@ export default function SkynetPro() {
                   <div className="mb-8">
                     <p className="text-sm text-gray-500 mb-2">Compatible With:</p>
                     <div className="flex items-center">
-                    <img src={Windoslogo} alt="Logo" className="h-10 w-auto" />
+                      <img src="src/assets/windows-logo.png" alt="Windows Compatible" className="h-8 w-8" />
                     </div>
                   </div>
                 </ScrollAnimation>
@@ -94,11 +90,10 @@ export default function SkynetPro() {
               >
                 <div className="relative">
                   <img
-                      src={skynetProHero}
-                      alt="SKYNET Pro"
-                      className="w-full h-auto rounded-2xl shadow-2xl"
+                    src="src/assets/skynet-pro-hero.png"
+                    alt="SKYNET Pro Interface"
+                    className="w-full h-auto"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
                 </div>
               </motion.div>
             </div>
@@ -117,11 +112,10 @@ export default function SkynetPro() {
                 className="relative"
               >
                 <img
-                    src={skynetProDevices}
-                    alt="SKYNET Pro Devices"
-                    className="w-full h-auto rounded-2xl shadow-2xl"
+                  src="src/assets/skynet-pro-devices.png"
+                  alt="SKYNET Pro on Multiple Devices"
+                  className="w-full h-auto"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
               </motion.div>
 
               {/* Right - Features List */}
