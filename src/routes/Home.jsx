@@ -3,9 +3,9 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import SkynetPro from "../assets/skynet-pro.png";
 import SkynetRetail from "../assets/skynet-retail.png";
-import healthcareIMS from "../assets/healthcareIMS.png";
-import starsIMS from "../assets/starsIMS.png";
-import PopupImage from "../assets/popup-image.png";
+import HealthcareIMS from "../assets/HealthcareIMS.png";
+import StarsIMS from "../assets/StarsIMS.png";
+import Skynetpro from "../assets/Skynet-pro.png";
 import TransformImage from "../assets/business-transformation.png";
 import WorldMap from "../assets/world-dots.png";
 // import Marians from "../assets/marians.png";
@@ -14,7 +14,6 @@ import Mobitel from "../assets/mobitel.png";
 import School from "../assets/school.png";
 import SMC from "../assets/smc.png";
 
-
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import Slider from "react-slick";
@@ -22,6 +21,18 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
 import CountUp from "react-countup";
+
+import LogoLoop from "../components/LogoLoop";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiDotnet,
+} from "react-icons/si";
+import { FaFlutter, FaSwift, FaGithub } from "react-icons/fa6";
+import { PiFileCSharpFill } from "react-icons/pi";
+
 
 // Enhanced Tech Vibe Floating Particles Component
 const TechParticles = () => {
@@ -34,13 +45,13 @@ const TechParticles = () => {
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
-    
+
     // Set canvas size
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-    
+
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
@@ -52,7 +63,9 @@ const TechParticles = () => {
         this.size = Math.random() * 3 + 1; // Slightly larger particles
         this.speedX = Math.random() * 1 - 0.5;
         this.speedY = Math.random() * 1 - 0.5;
-        this.color = `rgba(${Math.random() * 50 + 59}, ${Math.random() * 50 + 130}, ${Math.random() * 50 + 246}, ${Math.random() * 0.5 + 0.3})`;
+        this.color = `rgba(${Math.random() * 50 + 59}, ${
+          Math.random() * 50 + 130
+        }, ${Math.random() * 50 + 246}, ${Math.random() * 0.5 + 0.3})`;
         this.angle = 0;
         this.pulse = 0;
         this.pulseSpeed = Math.random() * 0.05 + 0.01;
@@ -61,7 +74,7 @@ const TechParticles = () => {
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        
+
         // Add subtle pulsing effect
         this.angle += this.pulseSpeed;
         this.pulse = Math.sin(this.angle) * 0.5 + 0.5;
@@ -78,25 +91,31 @@ const TechParticles = () => {
         // Draw glow effect
         ctx.shadowBlur = 10;
         ctx.shadowColor = this.color;
-        
+
         // Draw main particle with pulse effect
         ctx.fillStyle = this.color;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size * (0.8 + this.pulse * 0.4), 0, Math.PI * 2);
+        ctx.arc(
+          this.x,
+          this.y,
+          this.size * (0.8 + this.pulse * 0.4),
+          0,
+          Math.PI * 2
+        );
         ctx.fill();
-        
+
         // Draw inner highlight for tech look
         ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
         ctx.beginPath();
         ctx.arc(
-          this.x - this.size * 0.3, 
-          this.y - this.size * 0.3, 
-          this.size * 0.3, 
-          0, 
+          this.x - this.size * 0.3,
+          this.y - this.size * 0.3,
+          this.size * 0.3,
+          0,
           Math.PI * 2
         );
         ctx.fill();
-        
+
         ctx.shadowBlur = 0;
       }
     }
@@ -105,7 +124,7 @@ const TechParticles = () => {
     const initParticles = () => {
       particlesRef.current = [];
       const particleCount = Math.min(80, Math.floor(window.innerWidth / 20));
-      
+
       for (let i = 0; i < particleCount; i++) {
         particlesRef.current.push(new Particle());
       }
@@ -117,7 +136,7 @@ const TechParticles = () => {
         for (let j = i + 1; j < particlesRef.current.length; j++) {
           const p1 = particlesRef.current[i];
           const p2 = particlesRef.current[j];
-          
+
           const dx = p1.x - p2.x;
           const dy = p1.y - p2.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
@@ -127,10 +146,10 @@ const TechParticles = () => {
             const gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
             gradient.addColorStop(0, p1.color);
             gradient.addColorStop(1, p2.color);
-            
+
             ctx.strokeStyle = gradient;
             ctx.lineWidth = 0.8;
-            
+
             // Draw dotted line for tech look
             ctx.setLineDash([3, 3]);
             ctx.beginPath();
@@ -138,13 +157,13 @@ const TechParticles = () => {
             ctx.lineTo(p2.x, p2.y);
             ctx.stroke();
             ctx.setLineDash([]);
-            
+
             // Draw connection nodes
             ctx.fillStyle = p1.color;
             ctx.beginPath();
             ctx.arc(p1.x, p1.y, 1.5, 0, Math.PI * 2);
             ctx.fill();
-            
+
             ctx.fillStyle = p2.color;
             ctx.beginPath();
             ctx.arc(p2.x, p2.y, 1.5, 0, Math.PI * 2);
@@ -159,10 +178,10 @@ const TechParticles = () => {
       const gridSize = 50;
       const offsetX = (Date.now() / 100) % gridSize;
       const offsetY = (Date.now() / 100) % gridSize;
-      
+
       ctx.strokeStyle = "rgba(59, 130, 246, 0.05)";
       ctx.lineWidth = 0.5;
-      
+
       // Draw horizontal lines
       for (let y = offsetY; y < canvas.height; y += gridSize) {
         ctx.beginPath();
@@ -170,7 +189,7 @@ const TechParticles = () => {
         ctx.lineTo(canvas.width, y);
         ctx.stroke();
       }
-      
+
       // Draw vertical lines
       for (let x = offsetX; x < canvas.width; x += gridSize) {
         ctx.beginPath();
@@ -183,11 +202,11 @@ const TechParticles = () => {
     // Animation loop
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       // Draw background grid
       drawGrid();
 
-      particlesRef.current.forEach(particle => {
+      particlesRef.current.forEach((particle) => {
         particle.update();
         particle.draw();
       });
@@ -287,7 +306,6 @@ const slideUpVariants = {
 };
 
 export default function Home() {
-  
   const [showPopup, setShowPopup] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
@@ -374,7 +392,7 @@ export default function Home() {
     >
       {/* Enhanced Tech Particles Background */}
       <TechParticles />
-      
+
       {/* Floating Navbar */}
       <div className="fixed top-0 left-0 right-0 z-50">
         <Navbar />
@@ -504,6 +522,80 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="py-12 md:py-20 bg-white relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <ScrollAnimation delay={0.1}>
+              <div className="text-center mb-10 px-1">
+                <h2 className="text-2xl  md:text-4xl font-bold text-gray-900 mb-4">
+                  Technology <span className="text-blue-400">Behind Our</span> Solutions
+                </h2>
+                <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
+                  We partner with top companies to deliver exceptional digital
+                  solutions
+                </p>
+              </div>
+            </ScrollAnimation>
+
+            <ScrollAnimation delay={0.3}>
+              <div className="h-20 relative overflow-hidden md:mt-20">
+                <LogoLoop
+                  logos={[
+                    {
+                      node: <SiReact className="text-gray-300" size={55} />,
+                      title: "React",
+                      href: "https://share.google/images/2lACKHPz4UIkUrsKC",
+                    },
+                    {
+                      node: <SiNextdotjs className="text-gray-300" />,
+                      title: "Next.js",
+                      href: "https://nextjs.org",
+                    },
+                    {
+                      node: <PiFileCSharpFill className="text-gray-300" size={60} />,
+                      title: "C#",
+                    },
+                    {
+                      node: <SiTypescript className="text-gray-300" />,
+                      title: "TypeScript",
+                      href: "https://www.typescriptlang.org",
+                    },
+                    {
+                      node: <SiTailwindcss className="text-gray-300" size={60} />,
+                      title: "Tailwind CSS",
+                      href: "https://tailwindcss.com",
+                    },
+                    {
+                      node: <FaFlutter className="text-gray-300" size={42} />,
+                      title: "Flutter",
+                    },
+                    {
+                      node: <FaSwift className="text-gray-300" size={50} />,
+                      title: "Swift",
+                    },
+                    {
+                      node: <FaGithub className="text-gray-300" size={45} />,
+                      title: "Github",
+                    },
+                    {
+                      node: <SiDotnet className="text-gray-300" size={70} />,
+                      title: ".NET",
+                    },
+                  ]}
+                  speed={70}
+                  direction="left"
+                  logoHeight={48}
+                  gap={120}
+                  pauseOnHover
+                  scaleOnHover
+                  fadeOut
+                  fadeOutColor="#ffffff"
+                  ariaLabel="Technology partners"
+                />
+              </div>
+            </ScrollAnimation>
+          </div>
+        </section>
+
         {/* Content wrapper */}
         <div className="px-5 md:px-6 lg:px-8 xl:px-10 mt-8 md:mt-16 lg:mt-16 mx-1 sm:mx-2 md:mx-4 lg:mx-8">
           {/* Features Section */}
@@ -521,7 +613,7 @@ export default function Home() {
                     className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900 mb-3 sm:mb-4 md:ml-10 text-center md:text-left leading-tight"
                     style={{ fontFamily: "Roboto, sans-serif" }}
                   >
-                    <span className="text-gradient-to-r from-blue-500 via-blue-400 to-cyan-300">Innovative Features</span>{" "}
+                    <span className="text-blue-400">Innovative Features</span>{" "}
                     Our Company
                     <br /> Delivers To You
                   </h1>
@@ -671,7 +763,6 @@ export default function Home() {
 
           {/* Products Section */}
           <motion.section
-          
             id="products"
             ref={productsAnimation.ref}
             animate={productsAnimation.controls}
@@ -746,30 +837,30 @@ export default function Home() {
                     }}
                     className={`bg-white rounded-xl sm:rounded-2xl border border-gray-200 overflow-hidden cursor-pointer shadow-sm transition-all will-change-transform h-full ${
                       activeProductTab === "pro"
-                        ? "ring-2 ring-blue-500/60 shadow-md"
+                        ? "ring-2 ring-blue-400/40 shadow-md"
                         : "hover:shadow-lg"
                     }`}
                   >
-                    <div className="aspect-[4/3] flex items-center justify-center bg-blue-50">
+                    <div className="aspect-[4/3] flex items-center justify-center bg-blue-100">
                       <img
                         src={SkynetPro}
                         alt="SKYNET Pro"
-                        className="w-4/5 h-auto object-contain p-2"
+                        className="  md:w-[95%] h-auto object-contain p-2"
                       />
                     </div>
                     <div className="p-3 sm:p-4 md:p-5">
                       <p className="text-xs sm:text-sm md:text-[14px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4">
-                        SKYNET Pro uses the latest technology to manage entire
-                        hospitality businesses. Supports large-scale operations
-                        and handles unlimited transactions seamlessly and
-                        efficiently.
+                       SKYNET Pro is built with the latest technology to manage the entire hospitality business. It supports large-scale operations and can handle unlimited transactions in the industry
                       </p>
-                      <Link
+                      <div className="text-center">
+                        <Link
                         to="/skynet-pro"
-                        className="inline-block text-blue-400 font-medium text-xs sm:text-sm md:text-base hover:text-blue-600 transition-colors"
+                        className="inline-block text-blue-400 font-medium text-md md:text-base hover:text-blue-600 transition-colors"
                       >
                         Read More
                       </Link>
+                      </div>
+                      
                     </div>
                   </motion.div>
                 </ScrollAnimation>
@@ -788,30 +879,30 @@ export default function Home() {
                     }}
                     className={`bg-white rounded-xl sm:rounded-2xl border border-gray-200 overflow-hidden cursor-pointer shadow-sm transition-all will-change-transform h-full ${
                       activeProductTab === "retail"
-                        ? "ring-2 ring-blue-500/60 shadow-md"
+                        ? "ring-2 ring-blue-400/40 shadow-md"
                         : "hover:shadow-lg"
                     }`}
                   >
-                    <div className="aspect-[4/3] flex items-center justify-center bg-blue-50">
+                    <div className="aspect-[4/3] flex items-center justify-center bg-blue-100">
                       <img
                         src={SkynetRetail}
                         alt="SKYNET Retail"
-                        className="w-4/5 h-auto object-contain p-2"
+                        className="w-4/5 md:w-[95%] h-auto object-contain p-2"
                       />
                     </div>
                     <div className="p-3 sm:p-4 md:p-5">
                       <p className="text-xs sm:text-sm md:text-[14px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4">
-                        SKYNET Retail software is designed for retailed business
-                        such as salons, supermarkets, liquor stores, clothing
-                        stores. It enables smooth transactions and improves
-                        customer service.
+                        SKYNET Retail is tailored for supermarkets, salons, liquor, and clothing stores, enabling seamless transactions, efficient management, and improved customer service for modern retail businesses.
                       </p>
-                      <Link
+                      <div className="text-center">
+                        <Link
                         to="/skynet-retail"
-                        className="inline-block text-blue-400 font-medium text-xs sm:text-sm md:text-base hover:text-blue-600 transition-colors"
+                        className="inline-block text-blue-400 font-medium text-md md:text-base hover:text-blue-600 transition-colors"
                       >
                         Read More
                       </Link>
+                      </div>
+                      
                     </div>
                   </motion.div>
                 </ScrollAnimation>
@@ -830,29 +921,30 @@ export default function Home() {
                     }}
                     className={`bg-white rounded-xl sm:rounded-2xl border border-gray-200 overflow-hidden cursor-pointer shadow-sm transition-all will-change-transform h-full ${
                       activeProductTab === "health"
-                        ? "ring-2 ring-blue-500/60 shadow-md"
+                        ? "ring-2 ring-blue-400/40 shadow-md"
                         : "hover:shadow-lg"
                     }`}
                   >
-                    <div className="aspect-[4/3] flex items-center justify-center bg-blue-50">
+                    <div className="aspect-[4/3] flex items-center justify-center bg-blue-100">
                       <img
-                        src={healthcareIMS}
+                        src={HealthcareIMS}
                         alt="HEALTHCARE IMS"
-                        className="w-4/5 h-auto object-contain p-2"
+                        className="w-4/5 md:w-[95%] h-auto object-contain p-2"
                       />
                     </div>
                     <div className="p-3 sm:p-4 md:p-5">
                       <p className="text-xs sm:text-sm md:text-[14px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4">
-                        HEALTHCARE IMS supports hospitals, clinics, labs and
-                        pharmacies of any size. Fully customizable to fit
-                        specific customer. All user data is securely stored.
+                        HEALTHCARE IMS serves hospitals, labs, clinics, and pharmacies of any size. Fully customizable to client needs, it ensures secure storage and efficient management of all user data.
                       </p>
-                      <Link
+                      <div className="text-center">
+                        <Link
                         to="/healthcare-ims"
-                        className="inline-block text-blue-400 font-medium text-xs sm:text-sm md:text-base hover:text-blue-600 transition-colors"
+                        className="inline-block text-blue-400 font-medium text-md md:text-base hover:text-blue-600 transition-colors"
                       >
                         Read More
                       </Link>
+                      </div>
+                      
                     </div>
                   </motion.div>
                 </ScrollAnimation>
@@ -871,30 +963,30 @@ export default function Home() {
                     }}
                     className={`bg-white rounded-xl sm:rounded-2xl border border-gray-200 overflow-hidden cursor-pointer shadow-sm transition-all will-change-transform h-full ${
                       activeProductTab === "stars"
-                        ? "ring-2 ring-blue-500/60 shadow-md"
+                        ? "ring-2 ring-blue-400/40 shadow-md"
                         : "hover:shadow-lg"
                     }`}
                   >
-                    <div className="aspect-[4/3] flex items-center justify-center bg-blue-50">
+                    <div className="aspect-[4/3] flex items-center justify-center bg-blue-100">
                       <img
-                        src={starsIMS}
+                        src={StarsIMS}
                         alt="STARS IMS"
-                        className="w-4/5 h-auto object-contain p-2"
+                        className="w-4/5 md:w-[95%] h-auto object-contain p-2"
                       />
                     </div>
                     <div className="p-3 sm:p-4 md:p-5">
                       <p className="text-xs sm:text-sm md:text-[14px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4">
-                        STARS IMS is unique software designed for schools,
-                        tutors, colleges and universities. Built with secure
-                        technology, advanced features, and carefully tailored
-                        for education.
+                       STARS IMS is designed for schools, tutors, colleges, and universities, offering advanced, secure technology to efficiently manage educational institutes with reliability, safety, and modern features.
                       </p>
-                      <Link
+                      <div className="text-center">
+                        <Link
                         to="/stars-ims"
-                        className="inline-block text-blue-400 font-medium text-xs sm:text-sm md:text-base hover:text-blue-600 transition-colors"
+                        className="inline-block text-blue-400 font-medium text-md md:text-base hover:text-blue-600 transition-colors"
                       >
                         Read More
                       </Link>
+                      </div>
+                      
                     </div>
                   </motion.div>
                 </ScrollAnimation>
@@ -1071,7 +1163,7 @@ export default function Home() {
                         {...{
                           ...settings,
                           autoplaySpeed: 1000,
-                          speed: 640,
+                          speed: 700,
                           customPaging: (i) => <button />,
                           beforeChange: (oldIndex, newIndex) => {},
                         }}
@@ -1083,6 +1175,7 @@ export default function Home() {
                             className="object-contain transition-all duration-500 mx-auto"
                           />
                         </div>
+
                         {/* <div className="px-2 flex justify-center items-center h-full">
                           <img
                             src={Marians}
@@ -1097,6 +1190,7 @@ export default function Home() {
                             className="object-contain transition-all duration-500 mx-auto"
                           />
                         </div>
+
                         <div className="px-2 flex justify-center items-center h-full">
                           <img
                             src={School}
@@ -1104,6 +1198,7 @@ export default function Home() {
                             className="object-contain transition-all duration-500 mx-auto"
                           />
                         </div>
+
                         <div className="px-2 flex justify-center items-center h-full">
                           <img
                             src={SMC}
@@ -1189,7 +1284,7 @@ export default function Home() {
             </button>
 
             <img
-              src={PopupImage}
+              src={Skynetpro}
               alt="Special Offer"
               className="w-full h-auto object-contain rounded-lg"
             />

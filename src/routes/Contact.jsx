@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
-import Navbar from '../components/Navbar.jsx'
+import Navbar from '../components/ProNav.jsx'
 import Footer from '../components/Footer.jsx'
-import hero from '../assets/sky-logo.png'
+import hero from '../assets/ceylon-inovations.png'
 import { motion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 
@@ -77,7 +77,7 @@ export default function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
-                  className="mt-8 sm:mt-0 text-white drop-shadow-md text-2xl sm:text-3xl md:text-4xl font-bold"
+                  className="mt-8 sm:mt-0 text-white drop-shadow-md text-2xl md:text-5xl font-bold"
                 >
                   Contact Us
                 </motion.h1>
@@ -87,33 +87,33 @@ export default function Contact() {
         </section>
 
         {/* Intro */}
-        <section className="container-width px-4 sm:px-6 lg:px-8">
+        <section className=" relative md:right-70 container-width px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="-mt-10 sm:-mt-14 md:-mt-16 lg:-mt-20 max-w-3xl bg-white/95 backdrop-blur rounded-2xl shadow border border-slate-200 p-5 sm:p-7 mx-auto"
+            className="-mt-10 sm:-mt-14 md:-mt-16 lg:-mt-20 max-w-2xl bg-white/45 backdrop-blur rounded-2xl shadow border border-slate-200 p-5 sm:p-7 mx-auto"
           >
             <h3 className="text-sm sm:text-base md:text-lg font-semibold text-center text-slate-900">
               Let's Build Something Great Together
             </h3>
-            <p className="mt-3 text-slate-700 text-sm sm:text-base">
+            <p className="mt-3 text-slate-700 text-sm sm:text-base text-justify">
               At <a href="#" className="text-sky-700 font-medium underline">Ceylon Innovation</a>, we are passionate about creating powerful, user-friendly,
               and scalable web solutions that help businesses grow. Whether you need a brand-new website, an
               e-commerce platform, a custom web application, or ongoing support and upgrades, our expert team is
               ready to assist.
             </p>
-            <p className="mt-4 text-slate-700 text-sm sm:text-base">
-              We believe every project starts with a conversation. Share your ideas, challenges, or goals with us,
-              and we’ll work with you to craft the right digital solution. Fill out the form, send us an email, or
-              give us a call and let’s take the first step toward building your digital future.
+            <p className="mt-4 text-slate-700 text-sm sm:text-base text-justify">
+              We believe that every successful project begins with a meaningful conversation. Whether you have a new idea, a challenge you’re trying to solve, or a goal you want to achieve, we’re here to listen. Our team takes the time to truly understand your vision, your business, and the unique opportunities in front of you. From there, we work together to design and deliver a digital solution that not only meets your needs but also sets the foundation for future growth.
+
+You don’t have to have all the answers—that’s where we come in. Share your thoughts, questions, or even early concepts, and we’ll help shape them into something impactful. Simply fill out the form, send us an email, or give us a call. Let’s take the first step toward building your digital future together—one conversation at a time.
             </p>
           </motion.div>
         </section>
 
         {/* Map + Form */}
-        <section className="container-width px-4 sm:px-6 lg:px-8 py-10">
+        <section className="container-width px-5 sm:px-6 lg:px-8 py-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
             {/* Map */}
             <motion.div

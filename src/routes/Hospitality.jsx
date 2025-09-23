@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Navbar from "../components/Navbar.jsx";
+import Navbar from "../components/ProNav.jsx";
 import Footer from "../components/Footer.jsx";
 
 import avenra from "../assets/avenra.png";
@@ -7,19 +7,222 @@ import farinn from "../assets/far inn village.png";
 import skylongue from "../assets/sky longue.jpg";
 import melheim from "../assets/melheim chain.jpg";
 import arya from "../assets/arya grand.jpg";
-import rio from '../assets/riocaffe.jpg';
-import sensal from '../assets/sensal.jpg';
-import bakers from '../assets/pgbakers.jpg';
-import ransara from '../assets/ransara.jpg';
-import ransilu from '../assets/ransilu.png';
-import choice from '../assets/choice cafe.png';
-import tera from '../assets/teralounge.jpg';
+import rio from "../assets/riocaffe.jpg";
+import sensal from "../assets/sensal.jpg";
+import bakers from "../assets/pgbakers.jpg";
+import ransara from "../assets/ransara.jpg";
+import ransilu from "../assets/ransilu.png";
+import choice from "../assets/choice cafe.png";
+import tera from "../assets/teralounge.jpg";
 import choys from "../assets/choys.jpg";
 import pizza from "../assets/pizza boss.jpg";
 import spice from "../assets/spice food.jpg";
 import thanduri from "../assets/thanduri.jpg";
 import delight from "../assets/delight.jpg";
 import ramya from "../assets/siri ramya.png";
+
+import { useEffect, useRef } from "react";
+
+
+// Enhanced Tech Vibe Floating Particles Component
+const TechParticles = () => {
+  const canvasRef = useRef(null);
+  const particlesRef = useRef([]);
+  const animationFrameRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    // Enhanced Particle class with tech vibe
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1; // Slightly larger particles
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+        this.color = `rgba(${Math.random() * 50 + 59}, ${
+          Math.random() * 50 + 130
+        }, ${Math.random() * 50 + 246}, ${Math.random() * 0.5 + 0.3})`;
+        this.angle = 0;
+        this.pulse = 0;
+        this.pulseSpeed = Math.random() * 0.05 + 0.01;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        // Add subtle pulsing effect
+        this.angle += this.pulseSpeed;
+        this.pulse = Math.sin(this.angle) * 0.5 + 0.5;
+
+        if (this.x > canvas.width + 5 || this.x < -5) {
+          this.speedX = -this.speedX;
+        }
+        if (this.y > canvas.height + 5 || this.y < -5) {
+          this.speedY = -this.speedY;
+        }
+      }
+
+      draw() {
+        // Draw glow effect
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+
+        // Draw main particle with pulse effect
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(
+          this.x,
+          this.y,
+          this.size * (0.8 + this.pulse * 0.4),
+          0,
+          Math.PI * 2
+        );
+        ctx.fill();
+
+        // Draw inner highlight for tech look
+        ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
+        ctx.beginPath();
+        ctx.arc(
+          this.x - this.size * 0.3,
+          this.y - this.size * 0.3,
+          this.size * 0.3,
+          0,
+          Math.PI * 2
+        );
+        ctx.fill();
+
+        ctx.shadowBlur = 0;
+      }
+    }
+
+    // Initialize particles
+    const initParticles = () => {
+      particlesRef.current = [];
+      const particleCount = Math.min(80, Math.floor(window.innerWidth / 20));
+
+      for (let i = 0; i < particleCount; i++) {
+        particlesRef.current.push(new Particle());
+      }
+    };
+
+    // Draw connection lines with tech-inspired pattern
+    const drawConnections = () => {
+      for (let i = 0; i < particlesRef.current.length; i++) {
+        for (let j = i + 1; j < particlesRef.current.length; j++) {
+          const p1 = particlesRef.current[i];
+          const p2 = particlesRef.current[j];
+
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 150) {
+            // Create tech-style connection with gradient
+            const gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
+            gradient.addColorStop(0, p1.color);
+            gradient.addColorStop(1, p2.color);
+
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 0.8;
+
+            // Draw dotted line for tech look
+            ctx.setLineDash([3, 3]);
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Draw connection nodes
+            ctx.fillStyle = p1.color;
+            ctx.beginPath();
+            ctx.arc(p1.x, p1.y, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = p2.color;
+            ctx.beginPath();
+            ctx.arc(p2.x, p2.y, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+      }
+    };
+
+    // Draw network grid in the background
+    const drawGrid = () => {
+      const gridSize = 50;
+      const offsetX = (Date.now() / 100) % gridSize;
+      const offsetY = (Date.now() / 100) % gridSize;
+
+      ctx.strokeStyle = "rgba(59, 130, 246, 0.05)";
+      ctx.lineWidth = 0.5;
+
+      // Draw horizontal lines
+      for (let y = offsetY; y < canvas.height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+
+      // Draw vertical lines
+      for (let x = offsetX; x < canvas.width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+    };
+
+    // Animation loop
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw background grid
+      drawGrid();
+
+      particlesRef.current.forEach((particle) => {
+        particle.update();
+        particle.draw();
+      });
+
+      // Draw connections between particles
+      drawConnections();
+
+      animationFrameRef.current = requestAnimationFrame(animate);
+    };
+
+    initParticles();
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animationFrameRef.current);
+      window.removeEventListener("resize", resizeCanvas);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-40"
+    />
+  );
+};
 
 // Section data
 const sections = [
@@ -65,88 +268,91 @@ const sections = [
     catering services, inventory & supply chain management, customer relationship management, 
     and intelligent data analytics & reporting into one unified system.`,
     imgSrc: arya,
-    
   },
-    {
-      title: 'Rio Cafe',
-      description: `At Rio Caffe, we provided an integrated digital platform designed to enhance café and restaurant operations. Our solution brings together order management, billing & finance, kitchen and menu operations, inventory & supply chain monitoring, customer relationship management, and intelligent data analytics & reporting into one streamlined system.`,
-      imgSrc: rio,
-    },
-    {
-      title: 'Sen-Saal',
-      description: `At Sen-Saal, we provided an integrated digital platform designed to modernize bakery and restaurant operations. Our solution unifies order management, billing & finance, recipe and production tracking, kitchen operations, inventory & supply chain monitoring, customer relationship management, and intelligent data analytics & reporting into one seamless system.`,
-      imgSrc: sensal,
-    },
-    {
-      title: 'P & G Bakers',
-      description: `At P&G Bakers, we provided an integrated digital platform designed to optimize bakery and café operations. Our solution streamlines order processing, billing & finance, recipe and production management, kitchen workflows, inventory & supply chain control, customer relationship management, and intelligent data analytics & reporting into one efficient system.`,
-      imgSrc: bakers,
-    },
-    {
-      title: 'Ransara',
-      description: `At Ransara, we provided an integrated digital platform designed to streamline bakery and restaurant operations. Our solution brings together order management, billing & finance, recipe and production tracking, kitchen workflows, inventory & supply chain monitoring, customer relationship management, and intelligent data analytics & reporting into one unified system.`,
-      imgSrc: ransara,
-    },
-    {
-      title: 'Ransilu Bakers',
-      description: `At Ransilu Bakers, we provided an integrated digital platform designed to enhance bakery and café operations. Our solution integrates order processing, billing & finance, recipe and production management, kitchen operations, inventory & supply chain monitoring, customer relationship management, and intelligent data analytics & reporting into one seamless system.`,
-      imgSrc: ransilu,
-    },
-    {
-      title: 'Choice Cafe',
-      description: `Choice Cafe offers a vibrant café experience with expertly crafted drinks, fresh and flavorful dishes, a cozy and modern atmosphere, personalized service, quick order fulfillment, and smart insights to enhance every visit.`,
-      imgSrc: choice,
-    },
-    {
-      title: 'Teralounge',
-      description: `Teralounge Cafe offers a premium café experience with gourmet beverages, freshly prepared meals, cozy ambiance, personalized service, efficient order management, and insightful customer feedback tracking.`,
-      imgSrc: tera,
-    },
-    {
-        title: "Choy’s Waterfront Residence",
-        description: `Choy’s Waterfront Residence, Negombo enhances hospitality operations with integrated 
+  {
+    title: "Rio Cafe",
+    description: `At Rio Caffe, we provided an integrated digital platform designed to enhance café and restaurant operations. Our solution brings together order management, billing & finance, kitchen and menu operations, inventory & supply chain monitoring, customer relationship management, and intelligent data analytics & reporting into one streamlined system.`,
+    imgSrc: rio,
+  },
+  {
+    title: "Sen-Saal",
+    description: `At Sen-Saal, we provided an integrated digital platform designed to modernize bakery and restaurant operations. Our solution unifies order management, billing & finance, recipe and production tracking, kitchen operations, inventory & supply chain monitoring, customer relationship management, and intelligent data analytics & reporting into one seamless system.`,
+    imgSrc: sensal,
+  },
+  {
+    title: "P & G Bakers",
+    description: `At P&G Bakers, we provided an integrated digital platform designed to optimize bakery and café operations. Our solution streamlines order processing, billing & finance, recipe and production management, kitchen workflows, inventory & supply chain control, customer relationship management, and intelligent data analytics & reporting into one efficient system.`,
+    imgSrc: bakers,
+  },
+  {
+    title: "Ransara",
+    description: `At Ransara, we provided an integrated digital platform designed to streamline bakery and restaurant operations. Our solution brings together order management, billing & finance, recipe and production tracking, kitchen workflows, inventory & supply chain monitoring, customer relationship management, and intelligent data analytics & reporting into one unified system.`,
+    imgSrc: ransara,
+  },
+  {
+    title: "Ransilu Bakers",
+    description: `At Ransilu Bakers, we provided an integrated digital platform designed to enhance bakery and café operations. Our solution integrates order processing, billing & finance, recipe and production management, kitchen operations, inventory & supply chain monitoring, customer relationship management, and intelligent data analytics & reporting into one seamless system.`,
+    imgSrc: ransilu,
+  },
+  {
+    title: "Choice Cafe",
+    description: `Choice Cafe offers a vibrant café experience with expertly crafted drinks, fresh and flavorful dishes, a cozy and modern atmosphere, personalized service, quick order fulfillment, and smart insights to enhance every visit.`,
+    imgSrc: choice,
+  },
+  {
+    title: "Teralounge",
+    description: `Teralounge Cafe offers a premium café experience with gourmet beverages, freshly prepared meals, cozy ambiance, personalized service, efficient order management, and insightful customer feedback tracking.`,
+    imgSrc: tera,
+  },
+  {
+    title: "Choy’s Waterfront Residence",
+    description: `Choy’s Waterfront Residence, Negombo enhances hospitality operations with integrated 
         solutions, ensuring efficient management, seamless guest services, and an exceptional stay 
         experience with faster response to guest needs.`,
-        imgSrc: choys,
-      },
-      {
-        title: "Pizza Boss",
-        description: `Pizza Boss manages order processing, menu customization, kitchen operations, 
+    imgSrc: choys,
+  },
+  {
+    title: "Pizza Boss",
+    description: `Pizza Boss manages order processing, menu customization, kitchen operations, 
         delivery tracking, inventory management, and intelligent reporting.`,
-        imgSrc: pizza,
-      },
-      {
-        title: "Spice Food Court",
-        description: `Spice Food Court manages order processing, menu customization, kitchen operations, 
+    imgSrc: pizza,
+  },
+  {
+    title: "Spice Food Court",
+    description: `Spice Food Court manages order processing, menu customization, kitchen operations, 
         table & delivery management, inventory control, and intelligent reporting.`,
-        imgSrc: spice,
-      },
-      {
-        title: "Tandoori Indian Cuisine, Kandy",
-        description: `Tandoori Indian Cuisine, Kandy provides complete dining solutions with authentic 
+    imgSrc: spice,
+  },
+  {
+    title: "Tandoori Indian Cuisine, Kandy",
+    description: `Tandoori Indian Cuisine, Kandy provides complete dining solutions with authentic 
         Indian flavors, modern kitchen equipment, customized menu options, timely service, 
         ingredient management, and intelligent reporting.`,
-        imgSrc: thanduri,
-      },
-      {
-        title: "Delight - Kandy",
-        description: `Delight, Kandy provides complete dining solutions with delicious menu offerings, 
+    imgSrc: thanduri,
+  },
+  {
+    title: "Delight - Kandy",
+    description: `Delight, Kandy provides complete dining solutions with delicious menu offerings, 
         modern kitchen facilities, customized orders, timely service, inventory management, 
         and intelligent reporting.`,
-        imgSrc: delight,
-      },
-      {
-        title: "Siri Ramya - Kandy",
-        description: `Siri Ramya, Kandy delivers exceptional dining experiences with flavorful dishes, 
+    imgSrc: delight,
+  },
+  {
+    title: "Siri Ramya - Kandy",
+    description: `Siri Ramya, Kandy delivers exceptional dining experiences with flavorful dishes, 
         efficient kitchen operations, personalized menu options, prompt service, stock management, 
         and smart reporting.`,
-        imgSrc: ramya,
-      },
+    imgSrc: ramya,
+  },
 ];
 
 export default function Hospitality() {
   return (
-    <div className="min-h-screen bg-white">
+
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+       <TechParticles />
+
+       <div className="min-h-screen bg-white">
       {/* Floating Navbar */}
       <div className="absolute top-[-10px] md:top-[-20px] sm:top-[-15px] left-0 right-0 z-50">
         <Navbar />
@@ -189,9 +395,14 @@ export default function Hospitality() {
               >
                 {/* Background for alternate sections */}
                 {idx % 2 === 0 && (
-                  <div className="absolute inset-0 left-[-100px] right-0 w-screen bg-gradient-to-r from-blue-50 to-transparent"></div>
+                  <div className="absolute inset-0 left-[-100px] right-0 w-screen pointer-events-none z-0">
+                    <div className="w-full h-full"
+                      style={{
+                        background: "linear-gradient(90deg, transparent 0%, #eff6ff 50%, transparent 100%)"
+                      }}
+                    />
+                  </div>
                 )}
-
                 {/* Content */}
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10 px-6 sm:px-8 lg:px-12">
                   {/* Image */}
@@ -234,5 +445,12 @@ export default function Hospitality() {
 
       <Footer />
     </div>
+
+
+    </div>
+     
+
+
+    
   );
 }

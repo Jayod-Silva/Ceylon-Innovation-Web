@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import Navbar from '../components/Navbar.jsx'
+import Navbar from '../components/ProNav.jsx'
 import Footer from '../components/Footer.jsx'
 import hero from '../assets/sky-logo.png'
 import { motion } from 'framer-motion'

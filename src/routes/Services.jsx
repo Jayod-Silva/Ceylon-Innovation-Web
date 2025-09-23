@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Navbar from '../components/Navbar.jsx'
+import Navbar from '../components/ProNav.jsx'
 import Footer from '../components/Footer.jsx'
 
 export default function Services() {
