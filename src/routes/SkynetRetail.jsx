@@ -7,6 +7,7 @@ import Skynetretail from "../assets/reatailhero.png";
 import skynetdevices from "../assets/reataildevices.png";
 import TransformImage from "../assets/business-transformation.png";
 import windows from "../assets/windows-logo.png";
+import { Link } from "react-router-dom";
 
 // Animation variants for the new section
 const slideUpVariants = {
@@ -309,7 +310,10 @@ export default function SkynetPro() {
 
                     <ScrollAnimation delay={0.2}>
                       <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6 md:mb-8 max-w-lg">
-                        SKYNET Retail is carefully designed for retail businesses ranging from small-scale retail stores to large scale supermarkets. SKYNET Retail creates a space for easy transactions and perfect customer handling.
+                        SKYNET Retail is carefully designed for retail
+                        businesses ranging from small-scale retail stores to
+                        large scale supermarkets. SKYNET Retail creates a space
+                        for easy transactions and perfect customer handling.
                       </p>
                     </ScrollAnimation>
 
@@ -405,8 +409,8 @@ export default function SkynetPro() {
                       Key <span className="text-blue-500">Features</span>
                     </h2>
                     <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                      Discover what makes SKYNET Retail the ultimate solution for
-                      your Retail business
+                      Discover what makes SKYNET Retail the ultimate solution
+                      for your Retail business
                     </p>
                   </div>
                 </ScrollAnimation>
@@ -445,10 +449,12 @@ export default function SkynetPro() {
                           User-Friendly
                         </h3>
                         <p className="text-gray-600 text-md leading-relaxed">
-                          It is designed in such a way that it is easy to consume and understand the functions provided at a glance, as well as to learn very quickly. Everything can be operated from a keyboard as well as a touch.
+                          It is designed in such a way that it is easy to
+                          consume and understand the functions provided at a
+                          glance, as well as to learn very quickly. Everything
+                          can be operated from a keyboard as well as a touch.
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
 
@@ -484,10 +490,11 @@ export default function SkynetPro() {
                           Adjustable & Scalable
                         </h3>
                         <p className="text-gray-600 text-md leading-relaxed">
-                          The ability to multitask has been developed. And if that isn’t enough, additional features can also be created to your bespoke requirements.
+                          The ability to multitask has been developed. And if
+                          that isn’t enough, additional features can also be
+                          created to your bespoke requirements.
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
 
@@ -529,10 +536,11 @@ export default function SkynetPro() {
                           Smart Automation
                         </h3>
                         <p className="text-gray-600 text-md leading-relaxed">
-                          SKYNET Retail is intelligent software that automates reports, streamlines operations, and reduces manual business management
+                          SKYNET Retail is intelligent software that automates
+                          reports, streamlines operations, and reduces manual
+                          business management
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
                 </div>
@@ -571,10 +579,12 @@ export default function SkynetPro() {
                           Reliability
                         </h3>
                         <p className="text-gray-600 text-md leading-relaxed">
-                          Keeps your business running during internet or power failures, allowing sales, billing, table management, and kitchen orders while securely storing data, including the last transaction.
+                          Keeps your business running during internet or power
+                          failures, allowing sales, billing, table management,
+                          and kitchen orders while securely storing data,
+                          including the last transaction.
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
 
@@ -610,10 +620,12 @@ export default function SkynetPro() {
                           Security
                         </h3>
                         <p className="text-gray-600 text-md leading-relaxed">
-                          Entrepreneurs guard against external fraud, but internal threats often go unnoticed and harder to solve. We help you detect, prevent, and reduce fraud risks within your business effectively.
+                          Entrepreneurs guard against external fraud, but
+                          internal threats often go unnoticed and harder to
+                          solve. We help you detect, prevent, and reduce fraud
+                          risks within your business effectively.
                         </p>
                       </div>
-                    
                     </motion.div>
                   </ScrollAnimation>
                 </div>
@@ -640,13 +652,15 @@ export default function SkynetPro() {
                         Let's Discuss Your Project Requirements And Create A
                         Custom Solution That Perfectly Fits Your Business Needs.
                       </p>
-                      <motion.button
-                        className="bg-blue-500 hover:bg-blue-600 text-white px-5 sm:px-6 md:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-semibold transition-colors text-xs sm:text-sm md:text-base cursor-pointer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Let's Discuss
-                      </motion.button>
+                      <Link to="/contact">
+                        <motion.button
+                          className="bg-blue-500 hover:bg-blue-600 text-white px-5 sm:px-6 md:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-semibold transition-colors text-xs sm:text-sm md:text-base cursor-pointer"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          Let's Discuss
+                        </motion.button>
+                      </Link>
                     </div>
                   </ScrollAnimation>
 

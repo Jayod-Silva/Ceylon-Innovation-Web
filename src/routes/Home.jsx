@@ -1,11 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import SkynetPro from "../assets/skynet-pro.png";
-import SkynetRetail from "../assets/skynet-retail.png";
-import HealthcareIMS from "../assets/HealthcareIMS.png";
+import SkynetPro from "../assets/skynet-pro-hero.png";
+import SkynetRetail from "../assets/reatailhero.png";
+import HealthcareIMS from "../assets/healthcareimshero.png";
 import StarsIMS from "../assets/StarsIMS.png";
-import Skynetpro from "../assets/Skynet-pro.png";
 import TransformImage from "../assets/business-transformation.png";
 import WorldMap from "../assets/world-dots.png";
 // import Marians from "../assets/marians.png";
@@ -32,7 +31,6 @@ import {
 } from "react-icons/si";
 import { FaFlutter, FaSwift, FaGithub } from "react-icons/fa6";
 import { PiFileCSharpFill } from "react-icons/pi";
-
 
 // Enhanced Tech Vibe Floating Particles Component
 const TechParticles = () => {
@@ -448,23 +446,27 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                <motion.button
-                  className="bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-300 hover:from-blue-600 hover:to-cyan-400 text-white px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-full font-medium transition-colors text-xs sm:text-sm md:text-base"
-                  style={{ fontFamily: "Poppins, sans-serif" }}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  &lt; &gt; Start Your Project
-                </motion.button>
+                <Link to="/Contact">
+                  <motion.button
+                    className="bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-300 hover:from-blue-600 hover:to-cyan-400 text-white px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-4 rounded-full font-medium transition-colors text-xs sm:text-sm md:text-base"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    &lt; &gt; Start Your Project
+                  </motion.button>
+                </Link>
 
-                <motion.button
-                  className="text-white hover:text-gray-300 px-4 py-2 sm:px-5 sm:py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 text-xs sm:text-sm md:text-base mt-3 sm:mt-0 mb-12 sm:mb-0"
-                  style={{ fontFamily: "Poppins, sans-serif" }}
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  Explore Services &rarr;
-                </motion.button>
+                <Link to="/About">
+                  <motion.button
+                    className="text-white hover:text-gray-300 px-4 py-2 sm:px-5 sm:py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 text-xs sm:text-sm md:text-base mt-3 sm:mt-0 mb-12 sm:mb-0"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                    whileHover={{ x: 5 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  >
+                    See more &rarr;
+                  </motion.button>
+                </Link>
               </motion.div>
             </div>
           </div>
@@ -527,7 +529,8 @@ export default function Home() {
             <ScrollAnimation delay={0.1}>
               <div className="text-center mb-10 px-1">
                 <h2 className="text-2xl  md:text-4xl font-bold text-gray-900 mb-4">
-                  Technology <span className="text-blue-400">Behind Our</span> Solutions
+                  Technology <span className="text-blue-400">Behind Our</span>{" "}
+                  Solutions
                 </h2>
                 <p className="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
                   We partner with top companies to deliver exceptional digital
@@ -551,7 +554,9 @@ export default function Home() {
                       href: "https://nextjs.org",
                     },
                     {
-                      node: <PiFileCSharpFill className="text-gray-300" size={60} />,
+                      node: (
+                        <PiFileCSharpFill className="text-gray-300" size={60} />
+                      ),
                       title: "C#",
                     },
                     {
@@ -560,7 +565,9 @@ export default function Home() {
                       href: "https://www.typescriptlang.org",
                     },
                     {
-                      node: <SiTailwindcss className="text-gray-300" size={60} />,
+                      node: (
+                        <SiTailwindcss className="text-gray-300" size={60} />
+                      ),
                       title: "Tailwind CSS",
                       href: "https://tailwindcss.com",
                     },
@@ -845,22 +852,24 @@ export default function Home() {
                       <img
                         src={SkynetPro}
                         alt="SKYNET Pro"
-                        className="  md:w-[95%] h-auto object-contain p-2"
+                        className="  md:w-[65%] h-auto object-contain p-2"
                       />
                     </div>
                     <div className="p-3 sm:p-4 md:p-5">
                       <p className="text-xs sm:text-sm md:text-[14px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4">
-                       SKYNET Pro is built with the latest technology to manage the entire hospitality business. It supports large-scale operations and can handle unlimited transactions in the industry
+                        SKYNET Pro is built with the latest technology to manage
+                        the entire hospitality business. It supports large-scale
+                        operations and can handle unlimited transactions in the
+                        industry
                       </p>
                       <div className="text-center">
                         <Link
-                        to="/skynet-pro"
-                        className="inline-block text-blue-400 font-medium text-md md:text-base hover:text-blue-600 transition-colors"
-                      >
-                        Read More
-                      </Link>
+                          to="/skynet-pro"
+                          className="inline-block text-blue-400 font-medium text-md md:text-base hover:text-blue-600 transition-colors"
+                        >
+                          Read More
+                        </Link>
                       </div>
-                      
                     </div>
                   </motion.div>
                 </ScrollAnimation>
@@ -887,22 +896,24 @@ export default function Home() {
                       <img
                         src={SkynetRetail}
                         alt="SKYNET Retail"
-                        className="w-4/5 md:w-[95%] h-auto object-contain p-2"
+                        className="w-4/5 md:w-[70%] h-auto object-contain p-2"
                       />
                     </div>
                     <div className="p-3 sm:p-4 md:p-5">
                       <p className="text-xs sm:text-sm md:text-[14px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4">
-                        SKYNET Retail is tailored for supermarkets, salons, liquor, and clothing stores, enabling seamless transactions, efficient management, and improved customer service for modern retail businesses.
+                        SKYNET Retail is tailored for supermarkets, salons,
+                        liquor, and clothing stores, enabling seamless
+                        transactions, efficient management, and improved
+                        customer service for modern retail businesses.
                       </p>
                       <div className="text-center">
                         <Link
-                        to="/skynet-retail"
-                        className="inline-block text-blue-400 font-medium text-md md:text-base hover:text-blue-600 transition-colors"
-                      >
-                        Read More
-                      </Link>
+                          to="/skynet-retail"
+                          className="inline-block text-blue-400 font-medium text-md md:text-base hover:text-blue-600 transition-colors"
+                        >
+                          Read More
+                        </Link>
                       </div>
-                      
                     </div>
                   </motion.div>
                 </ScrollAnimation>
@@ -929,22 +940,24 @@ export default function Home() {
                       <img
                         src={HealthcareIMS}
                         alt="HEALTHCARE IMS"
-                        className="w-4/5 md:w-[95%] h-auto object-contain p-2"
+                        className="w-4/5 md:w-[65%] h-auto object-contain p-2"
                       />
                     </div>
                     <div className="p-3 sm:p-4 md:p-5">
                       <p className="text-xs sm:text-sm md:text-[14px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4">
-                        HEALTHCARE IMS serves hospitals, labs, clinics, and pharmacies of any size. Fully customizable to client needs, it ensures secure storage and efficient management of all user data.
+                        HEALTHCARE IMS serves hospitals, labs, clinics, and
+                        pharmacies of any size. Fully customizable to client
+                        needs, it ensures secure storage and efficient
+                        management of all user data.
                       </p>
                       <div className="text-center">
                         <Link
-                        to="/healthcare-ims"
-                        className="inline-block text-blue-400 font-medium text-md md:text-base hover:text-blue-600 transition-colors"
-                      >
-                        Read More
-                      </Link>
+                          to="/healthcare-ims"
+                          className="inline-block text-blue-400 font-medium text-md md:text-base hover:text-blue-600 transition-colors"
+                        >
+                          Read More
+                        </Link>
                       </div>
-                      
                     </div>
                   </motion.div>
                 </ScrollAnimation>
@@ -976,17 +989,19 @@ export default function Home() {
                     </div>
                     <div className="p-3 sm:p-4 md:p-5">
                       <p className="text-xs sm:text-sm md:text-[14px] leading-5 sm:leading-6 text-gray-500 text-justify mb-3 sm:mb-4">
-                       STARS IMS is designed for schools, tutors, colleges, and universities, offering advanced, secure technology to efficiently manage educational institutes with reliability, safety, and modern features.
+                        STARS IMS is designed for schools, tutors, colleges, and
+                        universities, offering advanced, secure technology to
+                        efficiently manage educational institutes with
+                        reliability, safety, and modern features.
                       </p>
                       <div className="text-center">
                         <Link
-                        to="/stars-ims"
-                        className="inline-block text-blue-400 font-medium text-md md:text-base hover:text-blue-600 transition-colors"
-                      >
-                        Read More
-                      </Link>
+                          to="/stars-ims"
+                          className="inline-block text-blue-400 font-medium text-md md:text-base hover:text-blue-600 transition-colors"
+                        >
+                          Read More
+                        </Link>
                       </div>
-                      
                     </div>
                   </motion.div>
                 </ScrollAnimation>
@@ -1234,13 +1249,15 @@ export default function Home() {
                       Let's Discuss Your Project Requirements And Create A
                       Custom Solution That Perfectly Fits Your Business Needs.
                     </p>
-                    <motion.button
-                      className="bg-blue-500 hover:bg-blue-600 text-white px-5 sm:px-6 md:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-semibold transition-colors text-xs sm:text-sm md:text-base cursor-pointer"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      Let's Discuss
-                    </motion.button>
+                    <Link to="/contact">
+                      <motion.button
+                        className="bg-blue-500 hover:bg-blue-600 text-white px-5 sm:px-6 md:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-semibold transition-colors text-xs sm:text-sm md:text-base cursor-pointer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        Let's Discuss
+                      </motion.button>
+                    </Link>
                   </div>
                 </ScrollAnimation>
 
@@ -1284,7 +1301,7 @@ export default function Home() {
             </button>
 
             <img
-              src={Skynetpro}
+              src={StarsIMS}
               alt="Special Offer"
               className="w-full h-auto object-contain rounded-lg"
             />
