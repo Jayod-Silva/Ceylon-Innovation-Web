@@ -4,9 +4,16 @@ import Footer from "../components/Footer.jsx";
 import hero from "../assets/sky-logo.png";
 import smc from "../assets/smc.jpg";
 import churchImg from "../assets/church.jpg";
+import church from "../assets/kattuwa church.png";
 
 // Charity sections
 const sections = [
+  {
+    title: "St Francis De Sales Church, kattuwa",
+    description: `We have provided management systems to Duwa & Negombo Pitipana churches as a charity work by
+    Ceylon Innovation (PVT) LTD.`,
+    imgSrc: church,
+  },
   {
     title: "St. Mary's College, Chilaw",
     description: `St. Mary's Boys' National College is a premier school in Chilaw. As a community service by
