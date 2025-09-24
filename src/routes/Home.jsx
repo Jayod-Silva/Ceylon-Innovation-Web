@@ -852,7 +852,7 @@ export default function Home() {
                       <img
                         src={SkynetPro}
                         alt="SKYNET Pro"
-                        className="  md:w-[65%] h-auto object-contain p-2"
+                        className="  w-[65%] h-auto object-contain p-2"
                       />
                     </div>
                     <div className="p-3 sm:p-4 md:p-5">
