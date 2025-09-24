@@ -25,12 +25,14 @@ import LogoLoop from "../components/LogoLoop";
 import {
   SiReact,
   SiNextdotjs,
-  SiTypescript,
   SiTailwindcss,
   SiDotnet,
 } from "react-icons/si";
-import { FaFlutter, FaSwift, FaGithub } from "react-icons/fa6";
+import { FaFlutter, FaGithub, FaCss3Alt, FaHtml5 } from "react-icons/fa6";
 import { PiFileCSharpFill } from "react-icons/pi";
+import { IoLogoJavascript } from "react-icons/io5";
+import { DiMsqlServer } from "react-icons/di";
+import { TbBrandCSharp } from "react-icons/tb";
 
 // Enhanced Tech Vibe Floating Particles Component
 const TechParticles = () => {
@@ -545,40 +547,26 @@ export default function Home() {
                   logos={[
                     {
                       node: <SiReact className="text-gray-300" size={55} />,
-                      title: "React",
-                      href: "https://share.google/images/2lACKHPz4UIkUrsKC",
+                      title: "React",                
                     },
                     {
                       node: <SiNextdotjs className="text-gray-300" />,
                       title: "Next.js",
-                      href: "https://nextjs.org",
                     },
                     {
-                      node: (
-                        <PiFileCSharpFill className="text-gray-300" size={60} />
-                      ),
-                      title: "C#",
-                    },
-                    {
-                      node: <SiTypescript className="text-gray-300" />,
-                      title: "TypeScript",
-                      href: "https://www.typescriptlang.org",
+                      node: <IoLogoJavascript className="text-gray-300" />,
+                      title: "JavaScript",           
                     },
                     {
                       node: (
                         <SiTailwindcss className="text-gray-300" size={60} />
                       ),
-                      title: "Tailwind CSS",
-                      href: "https://tailwindcss.com",
+                      title: "Tailwind CSS", 
                     },
                     {
                       node: <FaFlutter className="text-gray-300" size={42} />,
                       title: "Flutter",
-                    },
-                    {
-                      node: <FaSwift className="text-gray-300" size={50} />,
-                      title: "Swift",
-                    },
+                    },           
                     {
                       node: <FaGithub className="text-gray-300" size={45} />,
                       title: "Github",
@@ -587,6 +575,25 @@ export default function Home() {
                       node: <SiDotnet className="text-gray-300" size={70} />,
                       title: ".NET",
                     },
+                    {
+                      node: <FaCss3Alt className="text-gray-300" size={60} />,
+                      title: "CSS",
+                    },
+                    {
+                      node: <FaHtml5 className="text-gray-300" size={60} />,
+                      title: "HTML",
+                    },
+                    {
+                      node: <DiMsqlServer className="text-gray-300" size={60} />,
+                      title: "sqlServer",
+                    },
+                    {
+                      node: <TbBrandCSharp className="text-gray-300" size={60} />,
+                      title: "C#",
+                    },
+                    
+                    
+                    
                   ]}
                   speed={70}
                   direction="left"
@@ -1310,7 +1317,7 @@ export default function Home() {
             </p>
             <div className="mt-3 sm:mt-4 flex justify-center">
               <button
-                className="bg-blue-500 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-sm"
+                className="bg-blue-500 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-sm cursor-pointer"
                 onClick={() => setShowPopup(false)}
               >
                 Close

@@ -520,7 +520,7 @@ export default function About() {
         </main>
 
         {/* Footer - Responsive margin */}
-        <div className="mt-1970 md:mt-510">
+        <div className="mt-1980 md:mt-510">
           <Footer />
         </div>
       </div>
