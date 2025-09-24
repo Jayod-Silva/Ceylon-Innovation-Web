@@ -42,10 +42,32 @@ const Masonry = ({
   blurToFocus = true,
   colorShiftOnHover = false
 }) => {
-  const columns = 3; // Fixed to always use 3 columns
-
+  // State to track the number of columns based on screen size
+  const [columns, setColumns] = useState(3);
   const [containerRef, { width }] = useMeasure();
   const [imagesReady, setImagesReady] = useState(false);
+
+  // Update columns based on screen width
+  useEffect(() => {
+    const updateColumns = () => {
+      if (window.innerWidth < 768) { // Mobile breakpoint
+        setColumns(1);
+      } else if (window.innerWidth < 1024) { // Tablet breakpoint
+        setColumns(2);
+      } else { // Desktop
+        setColumns(3);
+      }
+    };
+
+    // Initial call
+    updateColumns();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', updateColumns);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', updateColumns);
+  }, []);
 
   const getInitialPosition = item => {
     const containerRect = containerRef.current?.getBoundingClientRect();
@@ -83,14 +105,19 @@ const Masonry = ({
   const grid = useMemo(() => {
     if (!width) return [];
     const colHeights = new Array(columns).fill(0);
-    const gap = 16;
+    const gap = columns === 1 ? 16 : 16; // Adjust gap for mobile if needed
     const totalGaps = (columns - 1) * gap;
     const columnWidth = (width - totalGaps) / columns;
 
     return items.map(child => {
       const col = colHeights.indexOf(Math.min(...colHeights));
       const x = col * (columnWidth + gap);
-      const height = child.height / 2;
+      
+      // Adjust height calculation for mobile
+      const height = columns === 1 
+        ? child.height / 1.5  // Make images taller on mobile
+        : child.height / 2;   // Original height for desktop
+      
       const y = colHeights[col];
 
       colHeights[col] += height + gap;

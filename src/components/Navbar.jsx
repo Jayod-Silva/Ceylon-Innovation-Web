@@ -139,7 +139,7 @@ export default function Navbar({ onProductsClick }) {
       }}
     >
       <div
-        className={`px-2 md:px-4 h-12 md:h-18 flex items-center justify-between rounded-full shadow-sm mr-3  ${
+        className={`px-2 md:px-4 h-12 md:h-18 flex items-center justify-between rounded-full shadow-sm mr-4.5  ${
           isDomainPage ? 'bg-gray-00' : 'bg-white/95 backdrop-blur'
         } shadow-sm`}
       >

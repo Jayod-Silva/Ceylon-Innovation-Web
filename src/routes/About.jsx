@@ -301,195 +301,185 @@ export default function About() {
   }, [galleryControls, galleryInView]);
 
   return (
-
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
       <TechParticles />
 
-       <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-1">
-        {/* Hero Section */}
-        <motion.section
-          className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white bg-cover bg-center min-h-[300px] md:min-h-[400px]"
-          style={{ backgroundImage: `url(${skyLogo})` }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-32 ">
-            <div className="flex items-center justify-between">
-              <div className="flex-1">
-                <motion.h1
-                  className="text-4xl md:text-5xl font-bold mb-4 mt-20"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                >
-                  About Us
-                </motion.h1>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-1">
+          {/* Hero Section */}
+          <motion.section
+            className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white bg-cover bg-center min-h-[300px] md:min-h-[400px]"
+            style={{ backgroundImage: `url(${skyLogo})` }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-32 ">
+              <div className="flex items-center justify-between">
+                <div className="flex-1">
+                  <motion.h1
+                    className="text-4xl md:text-5xl font-bold mb-4 mt-20"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                  >
+                    About Us
+                  </motion.h1>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.section>
+          </motion.section>
 
-        {/* About Content Section */}
-        <section className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-2 py-8 md:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
-            {/* Text Content - 2/3 width on desktop, full width on mobile */}
-            <div className="lg:col-span-2 space-y-6 md:space-y-8 mt-0 md:mt-5">
-              <ScrollAnimation delay={0.1}>
-                <p className="text-gray-700 text-base md:text-lg leading-relaxed font-regular text-justify">
-                  <span className="text-blue-400 font-bold">
-                    Ceylon Innovation Services (PVT) LTD
-                  </span>{" "}
-                  is a leading software and business solutions provider,
-                  originally established in 2001 as SS Computer Systems.
-                  Evolving over the years, we have grown into a trusted partner
-                  for businesses worldwide, delivering top-quality, tailor-made
-                  IT solutions that empower organizations to thrive in a rapidly
-                  changing digital era.
-                </p>
-              </ScrollAnimation>
+          {/* About Content Section */}
+          <section className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-2 py-8 md:py-16">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
+              {/* Text Content - 2/3 width on desktop, full width on mobile */}
+              <div className="lg:col-span-2 space-y-6 md:space-y-8 mt-0 md:mt-5">
+                <ScrollAnimation delay={0.1}>
+                  <p className="text-gray-700 text-base md:text-lg leading-relaxed font-regular text-justify">
+                    <span className="text-blue-400 font-bold">
+                      Ceylon Innovation Services (PVT) LTD
+                    </span>{" "}
+                    is a leading software and business solutions provider,
+                    originally established in 2001 as SS Computer Systems.
+                    Evolving over the years, we have grown into a trusted
+                    partner for businesses worldwide, delivering top-quality,
+                    tailor-made IT solutions that empower organizations to
+                    thrive in a rapidly changing digital era.
+                  </p>
+                </ScrollAnimation>
 
-              <ScrollAnimation delay={0.2}>
-                <p className="text-gray-700 text-base md:text-lg leading-relaxed text-justify font-regular">
-                  We specialize in business automation, software development,
-                  and consultation services, guiding clients through the next
-                  generation of business innovation powered by technology. From
-                  startups to well-established global corporations, we bridge
-                  the gap between business and technology, ensuring our clients
-                  gain a competitive edge through innovative, high-value
-                  solutions.
-                </p>
-              </ScrollAnimation>
+                <ScrollAnimation delay={0.2}>
+                  <p className="text-gray-700 text-base md:text-lg leading-relaxed text-justify font-regular">
+                    We specialize in business automation, software development,
+                    and consultation services, guiding clients through the next
+                    generation of business innovation powered by technology.
+                    From startups to well-established global corporations, we
+                    bridge the gap between business and technology, ensuring our
+                    clients gain a competitive edge through innovative,
+                    high-value solutions.
+                  </p>
+                </ScrollAnimation>
 
-              <ScrollAnimation delay={0.3}>
-                <p className="text-gray-700 text-base md:text-lg leading-relaxed text-justify font-regular">
-                  Today, our diverse global team of 25+ professionals work
-                  around the clock, driven by a shared passion for innovation.
-                  We are dedicated to creating unique products, techniques, and
-                  capabilities that distinguish us from other providers.
-                </p>
-              </ScrollAnimation>
+                <ScrollAnimation delay={0.3}>
+                  <p className="text-gray-700 text-base md:text-lg leading-relaxed text-justify font-regular">
+                    Today, our diverse global team of 25+ professionals work
+                    around the clock, driven by a shared passion for innovation.
+                    We are dedicated to creating unique products, techniques,
+                    and capabilities that distinguish us from other providers.
+                  </p>
+                </ScrollAnimation>
 
-              <ScrollAnimation delay={0.3}>
-                <p className="text-gray-700 text-base md:text-lg leading-relaxed text-justify font-regular">
-                  Founded and led by{" "}
-                  <span className="font-bold">Shalitha De Soysa</span> , our
-                  journey is built on visionary leadership and a relentless
-                  commitment to excellence. Described by clients as extremely
-                  innovative, Shalitha is the driving force behind every bespoke
-                  IT solution we design and develop.
-                </p>
-              </ScrollAnimation>
+                <ScrollAnimation delay={0.3}>
+                  <p className="text-gray-700 text-base md:text-lg leading-relaxed text-justify font-regular">
+                    Founded and led by{" "}
+                    <span className="font-bold">Shalitha De Soysa</span> , our
+                    journey is built on visionary leadership and a relentless
+                    commitment to excellence. Described by clients as extremely
+                    innovative, Shalitha is the driving force behind every
+                    bespoke IT solution we design and develop.
+                  </p>
+                </ScrollAnimation>
 
-              <ScrollAnimation delay={0.3}>
-                <p className="text-black text-lg md:text-xl leading-relaxed font-bold text-justify">
-                  At Ceylon Innovation Services, we are more than just a service
-                  provider we are your solution.
-                </p>
-              </ScrollAnimation>
-            </div>
+                <ScrollAnimation delay={0.3}>
+                  <p className="text-black text-lg md:text-xl leading-relaxed font-bold text-justify">
+                    At Ceylon Innovation Services, we are more than just a
+                    service provider we are your solution.
+                  </p>
+                </ScrollAnimation>
+              </div>
 
-            {/* CEO Profile - 1/3 width on desktop, full width on mobile */}
-            <div className="lg:col-span-1 flex flex-col items-center mt-8 md:mt-0">
-              <ScrollAnimation delay={0.4}>
-                {/* Container for image and background - Desktop Layout */}
-                <div className="hidden lg:block relative w-full max-w-xs h-80 mb-6">
-                  {/* Gray rectangle behind CEO image */}
-                  <div className="absolute w-75 h-139 bg-gray-200 rounded-tr-[80px] top-6 right-0 left-36 z-10"></div>
+              {/* CEO Profile - 1/3 width on desktop, full width on mobile */}
+              <div className="lg:col-span-1 flex flex-col items-center mt-8 md:mt-0">
+                <ScrollAnimation delay={0.4}>
+                  {/* Container for image and background - Desktop Layout */}
+                  <div className="hidden lg:block relative w-full max-w-xs h-80 mb-6">
+                    {/* Gray rectangle behind CEO image */}
+                    <div className="absolute w-75 h-139 bg-gray-200 rounded-tr-[80px] top-6 right-0 left-36 z-10"></div>
 
-                  {/* CEO image */}
-                  <div className="absolute w-50 md:w-128 h-auto object-cover rounded-lg left-0 top-10 z-20 ">
-                    
-                    <div className="absolute inset-0 bg-white rounded-lg shadow-lg">
-                      <motion.img
-                      src={ceoImage}
-                      alt="Shalitha De Soysa - Founder & CEO"
-                      className="w-full h-auto"
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.3 }}
-                    />
+                    {/* CEO image */}
+                    <div className="absolute w-50 md:w-128 h-auto object-cover rounded-lg left-0 top-10 z-20 ">
+                      <div className="absolute inset-0 bg-white rounded-lg shadow-lg">
+                        <motion.img
+                          src={ceoImage}
+                          alt="Shalitha De Soysa - Founder & CEO"
+                          className="w-full h-auto"
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      </div>
                     </div>
-                    
                   </div>
-                </div>
 
-                {/* Mobile Layout for CEO Image */}
-<div className="lg:hidden flex flex-col items-center">
-  <div className="w-64 h-[340px] md:w-72 md:h-[500px] relative mb-6 z-20">
-    {/* Gray background behind CEO image */}
-    <div className="absolute inset-0 bg-gray-200 w-50 h-77 ml-14 rounded-tr-[40px] z-10"></div>
+                  {/* Mobile Layout for CEO Image */}
+                  <div className="lg:hidden flex flex-col items-center">
+                    <div className="w-64 h-[340px] md:w-72 md:h-[500px] relative mb-6 z-20">
+                      {/* Gray background behind CEO image */}
+                      <div className="absolute inset-0 bg-gray-200 w-50 h-77 ml-14 rounded-tr-[40px] z-10"></div>
 
-    {/* CEO image */}
-    <div className="absolute inset-0 z-20 rounded-lg overflow-hidden z-20">
-      <motion.img
-        src={ceoImage}
-        alt="Shalitha De Soysa - Founder & CEO"
-        className="w-full h-full object-cover"
-        whileHover={{ scale: 1.05 }}
-        transition={{ duration: 0.3 }}
-      />
-    </div>
-  </div>
-</div>
+                      {/* CEO image */}
+                      <div className="absolute inset-0 z-20 rounded-lg overflow-hidden z-20">
+                        <motion.img
+                          src={ceoImage}
+                          alt="Shalitha De Soysa - Founder & CEO"
+                          className="w-full h-full object-cover"
+                          whileHover={{ scale: 1.05 }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      </div>
+                    </div>
+                  </div>
 
-                <motion.div
-                  className="text-center lg:mt-72 lg:ml-15"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.6, duration: 0.8 }}
-                >
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    Shalitha De Soysa
-                  </h3>
-                  <p className="text-gray-600 text-sm md:text-base mb-1">
-                    BSC(HONS) in Computer Science, PG, CERT,
-                  </p>
-                  <p className="text-gray-600 text-sm md:text-base mb-1">
-                    PG, DP, MBA, Spec in Accounting
-                  </p>
-                  <p className="font-medium text-gray-800 mt-2 bg-blue-100 inline-block px-4 py-2 md:px-5 md:py-3 rounded-full text-sm md:text-base">
-                    Founder & CEO
-                  </p>
-                </motion.div>
-              </ScrollAnimation>
+                  <motion.div
+                    className="text-center mt-[-40px] lg:mt-70 lg:ml-15"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.6, duration: 0.8 }}
+                  >
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
+                      Shalitha De Soysa
+                    </h3>
+                    <p className="text-gray-600 text-sm md:text-base mb-1">
+                      BSC(HONS) in Computer Science, PG, CERT,
+                    </p>
+                    <p className="text-gray-600 text-sm md:text-base mb-1">
+                      PG, DP, MBA, Spec in Accounting
+                    </p>
+                    <p className="font-medium text-gray-800 mt-2 bg-blue-100 inline-block px-4 py-2 md:px-5 md:py-3 rounded-full text-sm md:text-base">
+                      Founder & CEO
+                    </p>
+                  </motion.div>
+                </ScrollAnimation>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Gallery Section with Fade-in Animation */}
-        <motion.section
-          ref={galleryRef}
-          animate={galleryControls}
-          initial="hidden"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: {
-              opacity: 1,
-              transition: {
-                duration: 1,
-                ease: "easeOut",
-                when: "beforeChildren",
-                staggerChildren: 0.1,
+          {/* Gallery Section with Fade-in Animation */}
+          <motion.section
+            ref={galleryRef}
+            animate={galleryControls}
+            initial="hidden"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  duration: 1,
+                  ease: "easeOut",
+                  when: "beforeChildren",
+                  staggerChildren: 0.1,
+                },
               },
-            },
-          }}
-          className="py-8 md:py-16 bg-gray-200"
-        >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-lg">
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
-              }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-left text-gray-900 mb-4">
-                Gallery
-              </h2>
-            </motion.div>
-            
+            }}
+            className="py-8 md:py-16 bg-gray-200 md:ml-58 md:mr-40 md:rounded-tl-[80px] md:rounded-br-[80px]"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold text-left text-gray-900 ml-20">
+              Gallery
+            </h2>
+          </motion.section>
 
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-lg">
             <motion.div
               variants={{
                 hidden: { opacity: 0 },
@@ -527,18 +517,13 @@ export default function About() {
               className="text-center mt-8 md:mt-12"
             ></motion.div>
           </div>
-        </motion.section>
-      </main>
+        </main>
 
-      {/* Footer - Responsive margin */}
-      <div className="mt-1970 md:mt-490">
-        <Footer />
+        {/* Footer - Responsive margin */}
+        <div className="mt-1970 md:mt-510">
+          <Footer />
+        </div>
       </div>
     </div>
-
-
-    </div>
-      
-   
   );
 }

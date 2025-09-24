@@ -1,12 +1,212 @@
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
-
 import mariyans from "../assets/marians.png";
 import dushan from "../assets/dushan.jpg";
 import daddy from "../assets/daddy.jpg";
 
+import { useEffect, useRef } from "react";
 
+
+// Enhanced Tech Vibe Floating Particles Component
+const TechParticles = () => {
+  const canvasRef = useRef(null);
+  const particlesRef = useRef([]);
+  const animationFrameRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    // Enhanced Particle class with tech vibe
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 3 + 1; // Slightly larger particles
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+        this.color = `rgba(${Math.random() * 50 + 59}, ${
+          Math.random() * 50 + 130
+        }, ${Math.random() * 50 + 246}, ${Math.random() * 0.5 + 0.3})`;
+        this.angle = 0;
+        this.pulse = 0;
+        this.pulseSpeed = Math.random() * 0.05 + 0.01;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        // Add subtle pulsing effect
+        this.angle += this.pulseSpeed;
+        this.pulse = Math.sin(this.angle) * 0.5 + 0.5;
+
+        if (this.x > canvas.width + 5 || this.x < -5) {
+          this.speedX = -this.speedX;
+        }
+        if (this.y > canvas.height + 5 || this.y < -5) {
+          this.speedY = -this.speedY;
+        }
+      }
+
+      draw() {
+        // Draw glow effect
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+
+        // Draw main particle with pulse effect
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(
+          this.x,
+          this.y,
+          this.size * (0.8 + this.pulse * 0.4),
+          0,
+          Math.PI * 2
+        );
+        ctx.fill();
+
+        // Draw inner highlight for tech look
+        ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
+        ctx.beginPath();
+        ctx.arc(
+          this.x - this.size * 0.3,
+          this.y - this.size * 0.3,
+          this.size * 0.3,
+          0,
+          Math.PI * 2
+        );
+        ctx.fill();
+
+        ctx.shadowBlur = 0;
+      }
+    }
+
+    // Initialize particles
+    const initParticles = () => {
+      particlesRef.current = [];
+      const particleCount = Math.min(80, Math.floor(window.innerWidth / 20));
+
+      for (let i = 0; i < particleCount; i++) {
+        particlesRef.current.push(new Particle());
+      }
+    };
+
+    // Draw connection lines with tech-inspired pattern
+    const drawConnections = () => {
+      for (let i = 0; i < particlesRef.current.length; i++) {
+        for (let j = i + 1; j < particlesRef.current.length; j++) {
+          const p1 = particlesRef.current[i];
+          const p2 = particlesRef.current[j];
+
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 150) {
+            // Create tech-style connection with gradient
+            const gradient = ctx.createLinearGradient(p1.x, p1.y, p2.x, p2.y);
+            gradient.addColorStop(0, p1.color);
+            gradient.addColorStop(1, p2.color);
+
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 0.8;
+
+            // Draw dotted line for tech look
+            ctx.setLineDash([3, 3]);
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Draw connection nodes
+            ctx.fillStyle = p1.color;
+            ctx.beginPath();
+            ctx.arc(p1.x, p1.y, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = p2.color;
+            ctx.beginPath();
+            ctx.arc(p2.x, p2.y, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+      }
+    };
+
+    // Draw network grid in the background
+    const drawGrid = () => {
+      const gridSize = 50;
+      const offsetX = (Date.now() / 100) % gridSize;
+      const offsetY = (Date.now() / 100) % gridSize;
+
+      ctx.strokeStyle = "rgba(59, 130, 246, 0.05)";
+      ctx.lineWidth = 0.5;
+
+      // Draw horizontal lines
+      for (let y = offsetY; y < canvas.height; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+
+      // Draw vertical lines
+      for (let x = offsetX; x < canvas.width; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+    };
+
+    // Animation loop
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw background grid
+      drawGrid();
+
+      particlesRef.current.forEach((particle) => {
+        particle.update();
+        particle.draw();
+      });
+
+      // Draw connections between particles
+      drawConnections();
+
+      animationFrameRef.current = requestAnimationFrame(animate);
+    };
+
+    initParticles();
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animationFrameRef.current);
+      window.removeEventListener("resize", resizeCanvas);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-40"
+    />
+  );
+};
 
 const sections = [
   {
@@ -34,7 +234,9 @@ const sections = [
 
 export default function Other() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-full flex flex-col bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden p-2 md:p-0">
+      <TechParticles />\
+      <div className="min-h-screen bg-white">
       {/* Navbar */}
       <div className="absolute top-[-10px] md:top-[-20px] sm:top-[-15px] left-0 right-0 z-50">
         <Navbar />
@@ -78,9 +280,16 @@ export default function Other() {
               >
                 {/* Background highlight for alternate sections */}
                 {idx % 2 === 0 && (
-                  <div className="absolute inset-0 left-[-100px] right-[-100px] w-screen bg-gradient-to-r from-blue-50 to-transparent"></div>
-                )}
-
+                    <div className="absolute inset-0 left-[-100px] right-0 w-screen pointer-events-none z-0">
+                      <div
+                        className="w-full h-full"
+                        style={{
+                          background:
+                            "linear-gradient(90deg, transparent 0%, #eff6ff 50%, transparent 100%)",
+                        }}
+                      />
+                    </div>
+                  )}
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 relative z-10 px-6 sm:px-8 lg:px-12">
                   {/* Image */}
                   <motion.div
@@ -122,5 +331,13 @@ export default function Other() {
 
       <Footer />
     </div>
+
+
+    </div>
+        
+        
+
+
+    
   );
 }
