@@ -382,7 +382,7 @@ export default function SkynetPro() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                   >
                     <ScrollAnimation delay={0.3}>
-                      <div className="space-y-4 md:space-y-6 ml-70">
+                      <div className="text-[15px] space-y-6 display grid grid-cols-3 md:grid-cols-1 md:ml-70">
                         {[
                           "Hotels",
                           "Restaurant",
@@ -397,8 +397,8 @@ export default function SkynetPro() {
                             key={i}
                             className="flex items-start space-x-3 md:space-x-4"
                           >
-                            <div className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></div>
-                            <span className="text-gray-700 text-base md:text-lg">
+                            <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-3 flex-shrink-0"></div>
+                            <span className="text-gray-700  md:text-lg">
                               {feature}
                             </span>
                           </div>
