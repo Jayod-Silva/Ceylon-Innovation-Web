@@ -6,6 +6,7 @@ import dammika from "../assets/dammika furniture.png";
 import udara from "../assets/udara printers.jpg";
 import jayasuriya from "../assets/jayasuriya fuel.jpg";
 import zamgems from "../assets/zam gems.jpg";
+import umandawa from "../assets/umandawa.jpg";
 import { useEffect, useRef } from "react";
 
 // Section data
@@ -15,6 +16,12 @@ const sections = [
     description:
       "ZAM Gems delivering exceptional gemstone services with certified quality, modern processing facilities, customized designs, timely order fulfillment, efficient inventory management, and insightful sales reporting.",
     imgSrc: zamgems,
+  },
+  {
+    title: "Umandawa Green Hut ",
+    description: `Umandawa Green Hut offers fresh, organic produce in Colombo, promoting a 
+                  healthy and sustainable lifestyle`,
+    imgSrc: umandawa,
   },
   {
     title: "Hiru Salt",
