@@ -1304,7 +1304,7 @@ export default function Home() {
           >
 
             <img
-              src={Popup}
+              src={SkynetPro}
               alt="Special Offer"
               className="w-full h-auto object-contain rounded-lg"
             />
