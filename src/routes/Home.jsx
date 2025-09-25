@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 import SkynetPro from "../assets/skynet-pro-hero.png";
 import SkynetRetail from "../assets/reatailhero.png";
 import HealthcareIMS from "../assets/healthcareimshero.png";
-import StarsIMS from "../assets/StarsIMS.png";
+import StarsIMS from "../assets/starsIMS.png";
 import TransformImage from "../assets/business-transformation.png";
 import WorldMap from "../assets/world-dots.png";
 import Marians from "../assets/marians.png";
