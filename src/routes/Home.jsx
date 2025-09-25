@@ -12,7 +12,7 @@ import Avenra from "../assets/avenra.png";
 import Mobitel from "../assets/mobitel.png";
 import School from "../assets/school.png";
 import SMC from "../assets/smc.png";
-import Popup from "../assets/popup.png";
+import PopupIMG from "../assets/popup.png";
 
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
@@ -1304,7 +1304,7 @@ export default function Home() {
           >
 
             <img
-              src={Popup}
+              src={PopupIMG}
               alt="Special Offer"
               className="w-full h-auto object-contain rounded-lg"
             />
