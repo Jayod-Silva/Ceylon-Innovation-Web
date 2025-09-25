@@ -12,6 +12,7 @@ import Avenra from "../assets/avenra.png";
 import Mobitel from "../assets/mobitel.png";
 import School from "../assets/school.png";
 import SMC from "../assets/smc.png";
+import Popup from "../assets/popup.png";
 
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
@@ -1296,29 +1297,20 @@ export default function Home() {
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 max-w-xs sm:max-w-sm w-full relative"
+            className="bg-gray-100/80 rounded-xl sm:rounded-2xl p-1 md:p-3  md:w-170 relative"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ type: "spring", damping: 20 }}
           >
-            <button
-              className="absolute top-1 right-1 sm:top-2 sm:right-2 text-gray-600 hover:text-gray-900 font-bold text-lg sm:text-xl w-6 h-6 sm:w-8 sm:h-8 flex items-center justify-center rounded-full"
-              onClick={() => setShowPopup(false)}
-            >
-              &times;
-            </button>
 
             <img
-              src={StarsIMS}
+              src={Popup}
               alt="Special Offer"
               className="w-full h-auto object-contain rounded-lg"
             />
-            <p className="text-gray-700 mt-3 sm:mt-4 text-center text-xs sm:text-sm">
-              Check out our latest offer!
-            </p>
             <div className="mt-3 sm:mt-4 flex justify-center">
               <button
-                className="bg-blue-500 text-white px-3 sm:px-4 py-1 sm:py-2 rounded-lg text-xs sm:text-sm cursor-pointer"
+                className="bg-blue-500 text-white px-3 sm:px-4 py-3 md:py-2 rounded-lg text-xs mb-2 sm:text-sm cursor-pointer"
                 onClick={() => setShowPopup(false)}
               >
                 Close
