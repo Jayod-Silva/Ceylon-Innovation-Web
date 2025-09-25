@@ -256,7 +256,7 @@ export default function Careers() {
                 loading="eager"
               />
             </div>
-            <div className="container-width px-4">
+            <div className="container-width px-5">
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

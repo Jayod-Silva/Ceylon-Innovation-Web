@@ -7,7 +7,7 @@ import HealthcareIMS from "../assets/healthcareimshero.png";
 import StarsIMS from "../assets/StarsIMS.png";
 import TransformImage from "../assets/business-transformation.png";
 import WorldMap from "../assets/world-dots.png";
-// import Marians from "../assets/marians.png";
+import Marians from "../assets/marians.png";
 import Avenra from "../assets/avenra.png";
 import Mobitel from "../assets/mobitel.png";
 import School from "../assets/school.png";
@@ -1198,13 +1198,13 @@ export default function Home() {
                           />
                         </div>
 
-                        {/* <div className="px-2 flex justify-center items-center h-full">
+                        <div className="px-2 flex justify-center items-center h-full">
                           <img
                             src={Marians}
                             alt="Marians"
                             className="object-contain transition-all duration-500 mx-auto"
                           />
-                        </div> */}
+                        </div>
                         <div className="px-2 flex justify-center items-center h-full">
                           <img
                             src={Mobitel}
@@ -1242,8 +1242,9 @@ export default function Home() {
             animate={transformAnimation.controls}
             variants={slideUpVariants}
             initial="hidden"
-            className="bg-white py-8 sm:py-10 md:py-12 lg:py-16 rounded-2xl sm:rounded-3xl relative overflow-hidden my-8 sm:my-10 md:my-12 lg:my-16"
+            className="bg-white py-8 md:py-12 lg:py-16 rounded-2xl sm:rounded-3xl relative overflow-hidden my-8 sm:my-10 md:my-12 lg:my-16"
           >
+            
             <div className="relative z-10 px-4 sm:px-5 md:px-6 lg:px-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
                 {/* Left Content */}
