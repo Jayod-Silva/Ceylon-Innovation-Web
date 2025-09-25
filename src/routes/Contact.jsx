@@ -572,7 +572,7 @@ const TechParticles = () => {
                           value={form.message}
                           onChange={onChange}
                           required
-                          className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
+                          className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent resize-vertical"
                         />
                       </div>
 
@@ -592,7 +592,7 @@ const TechParticles = () => {
                         <button
                           type="submit"
                           disabled={status === 'submitting'}
-                          className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm"
+                          className="w-full bg-blue-500 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm"
                         >
                           {status === 'submitting' ? 'Submitting…' : 'Submit'}
                         </button>

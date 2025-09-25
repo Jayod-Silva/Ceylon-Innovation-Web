@@ -29,10 +29,10 @@ import {
   SiDotnet,
 } from "react-icons/si";
 import { FaFlutter, FaGithub, FaCss3Alt, FaHtml5 } from "react-icons/fa6";
-import { PiFileCSharpFill } from "react-icons/pi";
 import { IoLogoJavascript } from "react-icons/io5";
 import { DiMsqlServer } from "react-icons/di";
 import { TbBrandCSharp } from "react-icons/tb";
+import { LuSend } from "react-icons/lu";
 
 // Enhanced Tech Vibe Floating Particles Component
 const TechParticles = () => {
