@@ -235,7 +235,7 @@ const sections = [
 export default function Other() {
   return (
     <div className="min-h-full flex flex-col bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden p-2 md:p-0">
-      <TechParticles />\
+      <TechParticles />
       <div className="min-h-screen bg-white">
       {/* Navbar */}
       <div className="absolute top-[-10px] md:top-[-20px] sm:top-[-15px] left-0 right-0 z-50">

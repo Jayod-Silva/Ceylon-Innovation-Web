@@ -7,6 +7,7 @@ import healthhero from "../assets/healthcareimshero.png";
 import healthcaredevices from "../assets/healthcareimsdevices.png";
 import TransformImage from "../assets/business-transformation.png";
 import windows from "../assets/windows-logo.png";
+import { Link } from "react-router-dom";
 
 // Animation variants for the new section
 const slideUpVariants = {
@@ -309,7 +310,11 @@ export default function SkynetPro() {
 
                     <ScrollAnimation delay={0.2}>
                       <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6 md:mb-8 max-w-lg">
-                        Healthcare IMS is tailored for Hospitals, Health Centers, Medical Clinics, Pharmacies, and Laboratories of any scale. With Healthcare IMS all your data including patient details are stored and handled securely ensuring patients' privacy.
+                        Healthcare IMS is tailored for Hospitals, Health
+                        Centers, Medical Clinics, Pharmacies, and Laboratories
+                        of any scale. With Healthcare IMS all your data
+                        including patient details are stored and handled
+                        securely ensuring patients' privacy.
                       </p>
                     </ScrollAnimation>
 
@@ -371,23 +376,20 @@ export default function SkynetPro() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                   >
                     <ScrollAnimation delay={0.3}>
-                      <div className="space-y-4 md:space-y-6 ml-70">
-                        {[
-                          "Hospitals",
-                          "Care Homes",
-                          "Medical Practices",
-                          
-                        ].map((feature, i) => (
-                          <div
-                            key={i}
-                            className="flex items-start space-x-3 md:space-x-4"
-                          >
-                            <div className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></div>
-                            <span className="text-gray-700 text-base md:text-lg">
-                              {feature}
-                            </span>
-                          </div>
-                        ))}
+                      <div className="text-[15px] space-y-6 display grid grid-cols-3 md:grid-cols-1 md:ml-70">
+                        {["Hospitals", "Care Homes", "Medical Practices"].map(
+                          (feature, i) => (
+                            <div
+                              key={i}
+                              className="flex items-start space-x-3 md:space-x-4"
+                            >
+                              <div className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></div>
+                              <span className="text-gray-700 md:text-lg">
+                                {feature}
+                              </span>
+                            </div>
+                          )
+                        )}
                       </div>
                     </ScrollAnimation>
                   </motion.div>
@@ -443,10 +445,12 @@ export default function SkynetPro() {
                           User-Friendly
                         </h3>
                         <p className="text-gray-600 text-md leading-relaxed">
-                          It is designed in such a way that it is easy to consume and understand the functions provided at a glance, as well as to learn very quickly. Everything can be operated from a keyboard as well as a touch.
+                          It is designed in such a way that it is easy to
+                          consume and understand the functions provided at a
+                          glance, as well as to learn very quickly. Everything
+                          can be operated from a keyboard as well as a touch.
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
 
@@ -482,10 +486,11 @@ export default function SkynetPro() {
                           Adjustable & Scalable
                         </h3>
                         <p className="text-gray-600 text-md leading-relaxed">
-                          The ability to multitask has been developed. And if that isn’t enough, additional features can also be created to your bespoke requirements.
+                          The ability to multitask has been developed. And if
+                          that isn’t enough, additional features can also be
+                          created to your bespoke requirements.
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
 
@@ -527,10 +532,11 @@ export default function SkynetPro() {
                           Smart Automation
                         </h3>
                         <p className="text-gray-600 text-md leading-relaxed">
-                          Healthcare data must be handled securely, enabling our system to perform tasks intelligently, reduce risks, and eliminate the hassle of manual management.
+                          Healthcare data must be handled securely, enabling our
+                          system to perform tasks intelligently, reduce risks,
+                          and eliminate the hassle of manual management.
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
                 </div>
@@ -569,10 +575,12 @@ export default function SkynetPro() {
                           Reliability
                         </h3>
                         <p className="text-gray-600 text-md leading-relaxed">
-                          Your business keeps running during internet or power failures sales, billing, tables, and kitchen orders continue smoothly, while all data, including the last transaction, stays securely stored.
+                          Your business keeps running during internet or power
+                          failures sales, billing, tables, and kitchen orders
+                          continue smoothly, while all data, including the last
+                          transaction, stays securely stored.
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
 
@@ -608,13 +616,14 @@ export default function SkynetPro() {
                           Security
                         </h3>
                         <p className="text-gray-600 text-md leading-relaxed">
-                          Many businesses address external fraud, but internal threats often go unnoticed and harder to resolve. We help identify, prevent, and mitigate fraud, protecting your business from risks inside and out.
+                          Many businesses address external fraud, but internal
+                          threats often go unnoticed and harder to resolve. We
+                          help identify, prevent, and mitigate fraud, protecting
+                          your business from risks inside and out.
                         </p>
                       </div>
-                    
                     </motion.div>
                   </ScrollAnimation>
-                  
                 </div>
               </div>
             </section>
@@ -639,13 +648,15 @@ export default function SkynetPro() {
                         Let's Discuss Your Project Requirements And Create A
                         Custom Solution That Perfectly Fits Your Business Needs.
                       </p>
-                      <motion.button
-                        className="bg-blue-500 hover:bg-blue-600 text-white px-5 sm:px-6 md:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-semibold transition-colors text-xs sm:text-sm md:text-base cursor-pointer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Let's Discuss
-                      </motion.button>
+                      <Link to="/contact">
+                        <motion.button
+                          className="bg-blue-500 hover:bg-blue-600 text-white px-5 sm:px-6 md:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-semibold transition-colors text-xs sm:text-sm md:text-base cursor-pointer"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          Let's Discuss
+                        </motion.button>
+                      </Link>
                     </div>
                   </ScrollAnimation>
 

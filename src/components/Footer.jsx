@@ -26,10 +26,10 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-bold text-gray-200 mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="#" className="hover:text-cyan-400">Home</a></li>
-            <li><a href="#" className="hover:text-cyan-400">About Us</a></li>
-            <li><a href="#" className="hover:text-cyan-400">Products</a></li>
-            <li><a href="#" className="hover:text-cyan-400">Contact Us</a></li>
+            <li><a href="/" className="hover:text-cyan-400">Home</a></li>
+            <li><a href="/About" className="hover:text-cyan-400">About Us</a></li>
+            <li><a href="/products" className="hover:text-cyan-400">Products</a></li>
+            <li><a href="/Contact" className="hover:text-cyan-400">Contact Us</a></li>
           </ul>
         </div>
 
@@ -39,10 +39,10 @@ export default function Footer() {
           <h3 className="text-xl font-bold text-gray-200 mb-4">Contact Us</h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <strong>Hotline:</strong> <a href="tel:+94114758900" className="hover:text-cyan-400">+94 114 758 900</a>
+              <strong>Hotline:</strong> <a href="tel:+94114758900" className=" text-blue-400 hover:text-cyan-400">+94 114 758 900</a>
             </li>
             <li>
-              <strong>Email:</strong> <a href="mailto:info@ceyloninnovation.com" className="hover:text-cyan-400">info@ceyloninnovation.com</a>
+              <strong>Email:</strong> <a href="mailto:info@ceyloninnovation.com" className="text-blue-400 hover:text-cyan-400">info@ceyloninnovation.com</a>
             </li>
           </ul>
         </div>

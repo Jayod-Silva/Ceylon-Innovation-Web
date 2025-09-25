@@ -7,6 +7,7 @@ import skynethero from "../assets/skynet-pro-hero.png";
 import skynetdevices from "../assets/skynet-pro.png";
 import TransformImage from "../assets/business-transformation.png";
 import windows from "../assets/windows-logo.png";
+import { Link } from "react-router-dom";
 
 // Animation variants for the new section
 const slideUpVariants = {
@@ -463,7 +464,6 @@ export default function SkynetPro() {
                           and enjoy a seamless, hassle-free experience.
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
 
@@ -504,7 +504,6 @@ export default function SkynetPro() {
                           requirements as you grow.
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
 
@@ -551,7 +550,6 @@ export default function SkynetPro() {
                           business management tasks.
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
                 </div>
@@ -595,7 +593,6 @@ export default function SkynetPro() {
                           operations even during high-traffic events.
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
 
@@ -636,7 +633,6 @@ export default function SkynetPro() {
                           data and secure your operations.
                         </p>
                       </div>
-                    
                     </motion.div>
                   </ScrollAnimation>
                 </div>
@@ -663,13 +659,15 @@ export default function SkynetPro() {
                         Let's Discuss Your Project Requirements And Create A
                         Custom Solution That Perfectly Fits Your Business Needs.
                       </p>
-                      <motion.button
-                        className="bg-blue-500 hover:bg-blue-600 text-white px-5 sm:px-6 md:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-semibold transition-colors text-xs sm:text-sm md:text-base cursor-pointer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Let's Discuss
-                      </motion.button>
+                      <Link to="/contact">
+                        <motion.button
+                          className="bg-blue-500 hover:bg-blue-600 text-white px-5 sm:px-6 md:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-semibold transition-colors text-xs sm:text-sm md:text-base cursor-pointer"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          Let's Discuss
+                        </motion.button>
+                      </Link>
                     </div>
                   </ScrollAnimation>
 

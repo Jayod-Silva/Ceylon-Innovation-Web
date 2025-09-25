@@ -7,6 +7,7 @@ import startims from "../assets/starsIMS.png";
 import starsdevices from "../assets/starsdevices.png";
 import TransformImage from "../assets/business-transformation.png";
 import windows from "../assets/windows-logo.png";
+import { Link } from "react-router-dom";
 
 // Animation variants for the new section
 const slideUpVariants = {
@@ -309,7 +310,11 @@ export default function SkynetPro() {
 
                     <ScrollAnimation delay={0.2}>
                       <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-6 md:mb-8 max-w-lg">
-                        Stars IMS is a unique software carefully tailored for any educational institute from school and private tutors to colleges and universities. Stars IMS can handle any number of students and provides information services for both the academic and non-academic staff.
+                        Stars IMS is a unique software carefully tailored for
+                        any educational institute from school and private tutors
+                        to colleges and universities. Stars IMS can handle any
+                        number of students and provides information services for
+                        both the academic and non-academic staff.
                       </p>
                     </ScrollAnimation>
 
@@ -371,20 +376,19 @@ export default function SkynetPro() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                   >
                     <ScrollAnimation delay={0.3}>
-                      <div className="space-y-4 md:space-y-6 ml-70">
+                      <div className="text-[15px] space-y-6 display grid grid-cols-3 md:grid-cols-1 md:ml-70">
                         {[
                           "School",
                           "Education Centers",
                           "Colleges",
                           "Universities",
-                          
                         ].map((feature, i) => (
                           <div
                             key={i}
                             className="flex items-start space-x-3 md:space-x-4"
                           >
                             <div className="w-2 h-2 bg-gray-400 rounded-full mt-3 flex-shrink-0"></div>
-                            <span className="text-gray-700 text-base md:text-lg">
+                            <span className="text-gray-700 md:text-lg">
                               {feature}
                             </span>
                           </div>
@@ -404,8 +408,8 @@ export default function SkynetPro() {
                       Key <span className="text-blue-500">Features</span>
                     </h2>
                     <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                      Discover what makes STARS IMS ultimate solution for
-                      your Education Center
+                      Discover what makes STARS IMS ultimate solution for your
+                      Education Center
                     </p>
                   </div>
                 </ScrollAnimation>
@@ -444,10 +448,12 @@ export default function SkynetPro() {
                           User-Friendly
                         </h3>
                         <p className="text-gray-600 text-md leading-relaxed">
-                          Our Information System is built with simplicity in mind. We avoided unnecessary complexity, ensuring users can be trained quickly and enjoy a seamless, hassle-free experience
+                          Our Information System is built with simplicity in
+                          mind. We avoided unnecessary complexity, ensuring
+                          users can be trained quickly and enjoy a seamless,
+                          hassle-free experience
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
 
@@ -483,10 +489,11 @@ export default function SkynetPro() {
                           Adjustable & Scalable
                         </h3>
                         <p className="text-gray-600 text-md leading-relaxed">
-                          Since every business is unique, SKYNET Pro is designed to flexibly adapt and be tailored to meet your specific requirements
+                          Since every business is unique, SKYNET Pro is designed
+                          to flexibly adapt and be tailored to meet your
+                          specific requirements
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
 
@@ -528,10 +535,11 @@ export default function SkynetPro() {
                           Smart Automation
                         </h3>
                         <p className="text-gray-600 text-md leading-relaxed">
-                          STARS IMS Is Intelligent Software That Automates Invoice Streamlines Operations And Reduces Manual Business Management.
+                          STARS IMS Is Intelligent Software That Automates
+                          Invoice Streamlines Operations And Reduces Manual
+                          Business Management.
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
                 </div>
@@ -570,10 +578,11 @@ export default function SkynetPro() {
                           Reliability
                         </h3>
                         <p className="text-gray-600 text-md leading-relaxed">
-                          STARS IMS Keeps Your Business Running Online Managing Tables, Payments, Bills, And Kitchen Operations Even During Uninterrupted Events.
+                          STARS IMS Keeps Your Business Running Online Managing
+                          Tables, Payments, Bills, And Kitchen Operations Even
+                          During Uninterrupted Events.
                         </p>
                       </div>
-                      
                     </motion.div>
                   </ScrollAnimation>
 
@@ -609,13 +618,14 @@ export default function SkynetPro() {
                           Security
                         </h3>
                         <p className="text-gray-600 text-md leading-relaxed">
-                          Our Table System Is Carefully Designed By Our Talented Software And Network Engineers To Be Secure And Safe To Protect All Your Business Data And Secure Team For The Future.
+                          Our Table System Is Carefully Designed By Our Talented
+                          Software And Network Engineers To Be Secure And Safe
+                          To Protect All Your Business Data And Secure Team For
+                          The Future.
                         </p>
                       </div>
-                    
                     </motion.div>
                   </ScrollAnimation>
-                  
                 </div>
               </div>
             </section>
@@ -640,13 +650,15 @@ export default function SkynetPro() {
                         Let's Discuss Your Project Requirements And Create A
                         Custom Solution That Perfectly Fits Your Business Needs.
                       </p>
-                      <motion.button
-                        className="bg-blue-500 hover:bg-blue-600 text-white px-5 sm:px-6 md:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-semibold transition-colors text-xs sm:text-sm md:text-base cursor-pointer"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        Let's Discuss
-                      </motion.button>
+                      <Link to="/contact">
+                        <motion.button
+                          className="bg-blue-500 hover:bg-blue-600 text-white px-5 sm:px-6 md:px-8 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-semibold transition-colors text-xs sm:text-sm md:text-base cursor-pointer"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          Let's Discuss
+                        </motion.button>
+                      </Link>
                     </div>
                   </ScrollAnimation>
 

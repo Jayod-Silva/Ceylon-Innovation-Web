@@ -27,30 +27,29 @@ export default function Navbar({ onProductsClick }) {
   const productsDropdownRef = useRef(null);
 
   // Handle scroll to products when navigating from other pages
-  // Handle scroll to products when navigating from other pages
-useEffect(() => {
-  if (location.state?.scrollToProducts) {
-    const section = document.getElementById("products");
-    if (section) {
-      setTimeout(() => {
-        // Calculate navbar height (adjust this value based on your actual navbar height)
-        const navbarHeight = 80; // Approximate height in pixels
-        
-        // Scroll to section with offset for navbar
-        const elementPosition = section.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - navbarHeight;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth"
-        });
-        
-        // Clear the state to prevent scrolling on every render
-        navigate(location.pathname, { replace: true, state: {} });
-      }, 100);
+  useEffect(() => {
+    if (location.state?.scrollToProducts) {
+      const section = document.getElementById("products");
+      if (section) {
+        setTimeout(() => {
+          // Calculate navbar height (adjust this value based on your actual navbar height)
+          const navbarHeight = 80; // Approximate height in pixels
+          
+          // Scroll to section with offset for navbar
+          const elementPosition = section.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - navbarHeight;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+          
+          // Clear the state to prevent scrolling on every render
+          navigate(location.pathname, { replace: true, state: {} });
+        }, 100);
+      }
     }
-  }
-}, [location.state, navigate, location.pathname]);
+  }, [location.state, navigate, location.pathname]);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -89,6 +88,47 @@ useEffect(() => {
   };
 
   const toggleProductsDropdown = (e) => {
+    e.preventDefault();
+    setIsProductsOpen(!isProductsOpen);
+  };
+
+  // Mobile-specific handlers
+  const handleMobileHomeClick = () => {
+    if (location.pathname === "/") {
+      const section = document.getElementById("Home");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate("/");
+    }
+    setIsOpen(false);
+  };
+
+  const handleMobileProductsClick = (e) => {
+    e.preventDefault();
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollToProducts: true } });
+    } else {
+      const section = document.getElementById("products");
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    setIsOpen(false);
+  };
+
+  const toggleMobileIndustriesDropdown = (e) => {
+    e.preventDefault();
+    setIsIndustriesOpen(!isIndustriesOpen);
+  };
+
+  const toggleMobileMoreDropdown = (e) => {
+    e.preventDefault();
+    setIsMoreOpen(!isMoreOpen);
+  };
+
+  const toggleMobileProductsDropdown = (e) => {
     e.preventDefault();
     setIsProductsOpen(!isProductsOpen);
   };
@@ -333,23 +373,19 @@ useEffect(() => {
             } border border-gray-100 rounded-2xl shadow-xl mx-1 sm:mx-4 mt-2 z-50`}
           >
             <div className="px-2 sm:px-6 py-4 space-y-2">
-              {/* Home */}
-              <NavLink
-                to="/"
-                end
-                className={({ isActive }) =>
-                  `${mobileNavLinkClass} ${isActive ? 'text-black-600 bg-blue-50' : ''}`
-                }
-                onClick={toggleMobileMenu}
+              {/* Home - Matching desktop behavior */}
+              <button
+                className="w-full text-left px-4 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg"
+                onClick={handleMobileHomeClick}
               >
                 Home
-              </NavLink>
+              </button>
 
-              {/* Products Dropdown */}
+              {/* Products Dropdown - Full list matching desktop */}
               <div ref={productsDropdownRef}>
                 <button
                   className="w-full flex justify-between items-center px-4 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg"
-                  onClick={toggleProductsDropdown}
+                  onClick={toggleMobileProductsDropdown}
                 >
                   <span>Products</span>
                   <ChevronDown
@@ -391,11 +427,11 @@ useEffect(() => {
                 )}
               </div>
 
-              {/* Industries Dropdown */}
+              {/* Industries Dropdown - Full list matching desktop */}
               <div ref={industriesDropdownRef}>
                 <button
                   className="w-full flex justify-between items-center px-4 py-3 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-lg"
-                  onClick={toggleIndustriesDropdown}
+                  onClick={toggleMobileIndustriesDropdown}
                 >
                   <span>Industries</span>
                   <ChevronDown
@@ -417,7 +453,7 @@ useEffect(() => {
                       className={mobileNavLinkClass}
                       onClick={toggleMobileMenu}
                     >
-                      Hotels
+                      Hospitality
                     </NavLink>
                     <NavLink
                       to="/domain/retail"
@@ -432,6 +468,34 @@ useEffect(() => {
                       onClick={toggleMobileMenu}
                     >
                       Education
+                    </NavLink>
+                    <NavLink
+                      to="/domain/finance"
+                      className={mobileNavLinkClass}
+                      onClick={toggleMobileMenu}
+                    >
+                      Finance
+                    </NavLink>
+                    <NavLink
+                      to="/domain/entertainment"
+                      className={mobileNavLinkClass}
+                      onClick={toggleMobileMenu}
+                    >
+                      Entertainment
+                    </NavLink>
+                    <NavLink
+                      to="/domain/service"
+                      className={mobileNavLinkClass}
+                      onClick={toggleMobileMenu}
+                    >
+                      Service
+                    </NavLink>
+                    <NavLink
+                      to="/domain/other"
+                      className={mobileNavLinkClass}
+                      onClick={toggleMobileMenu}
+                    >
+                      Other
                     </NavLink>
                   </div>
                 )}
@@ -448,11 +512,11 @@ useEffect(() => {
                 About Us
               </NavLink>
 
-              {/* More Dropdown */}
+              {/* More Dropdown - Full list matching desktop */}
               <div ref={moreDropdownRef}>
                 <button
-                  className="w-full flex justify-between items-center px-4 py-3 text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg hover:underline"
-                  onClick={toggleMoreDropdown}
+                  className="w-full flex justify-between items-center px-4 py-3 text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-gray-50 rounded-lg"
+                  onClick={toggleMobileMoreDropdown}
                 >
                   <span>More</span>
                   <ChevronDown
