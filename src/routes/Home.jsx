@@ -6,13 +6,13 @@ import SkynetRetail from "../assets/reatailhero.png";
 import HealthcareIMS from "../assets/healthcareimshero.png";
 import StarsIMS from "../assets/starsIMS.png";
 import TransformImage from "../assets/business-transformation.png";
-import WorldMap from "../assets/world-dots.svg";
+import WorldMap from "../assets/world-dots.png";
 import Marians from "../assets/marians.png";
 import Avenra from "../assets/avenra.png";
 import Mobitel from "../assets/mobitel.png";
 import School from "../assets/school.png";
 import SMC from "../assets/smc.png";
-import PopupIMG from "../assets/popup.svg";
+import PopupIMG from "../assets/popup.png";
 
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
