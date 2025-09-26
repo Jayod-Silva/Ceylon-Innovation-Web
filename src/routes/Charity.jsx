@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
-import hero from "../assets/sky-logo.png";
-import smc from "../assets/smc.jpg";
-import churchImg from "../assets/church.jpg";
-import church from "../assets/kattuwa church.png";
+import hero from "../assets/sky-logo.svg";
+import smc from "../assets/smc.svg";
+import churchImg from "../assets/church.svg";
+import church from "../assets/kattuwa church.svg";
 
 import { useEffect, useRef } from "react";
 

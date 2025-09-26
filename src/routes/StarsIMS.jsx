@@ -3,10 +3,10 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Navbar from "../components/ProNav";
 import Footer from "../components/Footer.jsx";
-import startims from "../assets/starsIMS.png";
-import starsdevices from "../assets/starsdevices.png";
-import TransformImage from "../assets/business-transformation.png";
-import windows from "../assets/windows-logo.png";
+import startims from "../assets/starsIMS.svg";
+import starsdevices from "../assets/starsdevices.svg";
+import TransformImage from "../assets/business-transformation.svg";
+import windows from "../assets/windows-logo.svg";
 import { Link } from "react-router-dom";
 
 // Animation variants for the new section

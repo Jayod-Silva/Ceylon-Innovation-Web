@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import Navbar from "../components/ProNav.jsx";
 import Footer from "../components/Footer.jsx";
-import rohanwine from "../assets/rohan wine.jpg";
-import junewine from "../assets/june wine.jpg";
-import hemas from "../assets/hemas.jpg";
+import rohanwine from "../assets/rohan wine.svg";
+import junewine from "../assets/june wine.svg";
+import hemas from "../assets/hemas.svg";
 import { useEffect, useRef } from "react";
 
 // Enhanced Tech Vibe Floating Particles Component

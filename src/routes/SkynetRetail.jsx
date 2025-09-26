@@ -3,10 +3,10 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Navbar from "../components/ProNav";
 import Footer from "../components/Footer.jsx";
-import Skynetretail from "../assets/reatailhero.png";
-import skynetdevices from "../assets/reataildevices.png";
-import TransformImage from "../assets/business-transformation.png";
-import windows from "../assets/windows-logo.png";
+import Skynetretail from "../assets/reatailhero.svg";
+import skynetdevices from "../assets/reataildevices.svg";
+import TransformImage from "../assets/business-transformation.svg";
+import windows from "../assets/windows-logo.svg";
 import { Link } from "react-router-dom";
 
 // Animation variants for the new section

@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import Navbar from "../components/ProNav.jsx";
 import Footer from "../components/Footer.jsx";
-import collage from "../assets/marys collage.jpg";
-import nicholos from "../assets/nicholos school.jpg";
-import camridge from "../assets/camridge.png";
+import collage from "../assets/marys collage.svg";
+import nicholos from "../assets/nicholos school.svg";
+import camridge from "../assets/camridge.svg";
 import { useEffect, useRef } from "react";
 
 // Enhanced Tech Vibe Floating Particles Component

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import logo from '../assets/Colour_Logo.png';
+import logo from '../assets/Colour_Logo.svg';
 
 // Reusable classes
 const navLinkClass = ({ isActive }) =>

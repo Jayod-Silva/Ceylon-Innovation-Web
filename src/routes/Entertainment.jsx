@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
-import mariyans from "../assets/marians.png";
-import dushan from "../assets/dushan.jpg";
-import daddy from "../assets/daddy.jpg";
+import mariyans from "../assets/marians.svg";
+import dushan from "../assets/dushan.svg";
+import daddy from "../assets/daddy.svg";
 
 import { useEffect, useRef } from "react";
 

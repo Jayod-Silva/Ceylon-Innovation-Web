@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import Navbar from "../components/ProNav.jsx";
 import Footer from "../components/Footer.jsx";
-import hirusalt from "../assets/hiru salt.jpg";
-import dammika from "../assets/dammika furniture.png";
-import udara from "../assets/udara printers.jpg";
-import jayasuriya from "../assets/jayasuriya fuel.jpg";
-import zamgems from "../assets/zam gems.jpg";
-import umandawa from "../assets/umandawa.jpg";
+import hirusalt from "../assets/hiru salt.svg";
+import dammika from "../assets/dammika furniture.svg";
+import udara from "../assets/udara printers.svg";
+import jayasuriya from "../assets/jayasuriya fuel.svg";
+import zamgems from "../assets/zam gems.svg";
+import umandawa from "../assets/umandawa.svg";
 import { useEffect, useRef } from "react";
 
 // Section data

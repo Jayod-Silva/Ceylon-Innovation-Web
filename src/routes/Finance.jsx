@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import Navbar from "../components/ProNav.jsx";
 import Footer from "../components/Footer.jsx";
-import emerald from "../assets/emerald.jpg";
-import chilaw from "../assets/chilaw.png";
-import nr from "../assets/nr pawning.jpg";
-import silva from "../assets/silver arrow.png";
+import emerald from "../assets/emerald.svg";
+import chilaw from "../assets/chilaw.svg";
+import nr from "../assets/nr pawning.svg";
+import silva from "../assets/silver arrow.svg";
 import { useEffect, useRef } from "react";
 
 // Enhanced Tech Vibe Floating Particles Component

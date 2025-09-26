@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import Navbar from "../components/ProNav.jsx";
 import Footer from "../components/Footer.jsx";
-import pharma from "../assets/pharma-ifs.png";
-import abesekara from "../assets/abesekara-dental.png";
-import suwana from "../assets/suwana-hospital.png";
-import emerald from "../assets/emerald-pharmacy.png";
-import lifecare from "../assets/lifecare-hospital.png";
+import pharma from "../assets/pharma-ifs.svg";
+import abesekara from "../assets/abesekara-dental.svg";
+import suwana from "../assets/suwana-hospital.svg";
+import emerald from "../assets/emerald-pharmacy.svg";
+import lifecare from "../assets/lifecare-hospital.svg";
 import { useEffect, useRef } from "react";
 
 // Section data

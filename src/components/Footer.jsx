@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaFacebook, FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
-import logo from '../assets/ceylon-innovation-logo.png'
+import logo from '../assets/ceylon-innovation-logo.svg'
 
 export default function Footer() {
   return (

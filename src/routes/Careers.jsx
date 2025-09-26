@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import Navbar from "../components/ProNav.jsx";
 import Footer from "../components/Footer.jsx";
-import heroImg from "../assets/landing.jpg";
+import heroImg from "../assets/landing.svg";
 import { motion } from "framer-motion";
 // Enhanced Tech Vibe Floating Particles Component
 const TechParticles = () => {

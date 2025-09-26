@@ -3,12 +3,12 @@ import Navbar from '../components/ProNav.jsx';
 import Footer from '../components/Footer.jsx';
 
 // Images
-import salapura from '../assets/salapura electrical.png';
-import jayasuriya from '../assets/jayasuriya.png';
-import salon from '../assets/salon mondy.jpg';
-import sigiri from '../assets/sigiri motors.jpg';
-import sky from '../assets/sky international.jpg';
-import sonic from '../assets/super sonic.jpg';
+import salapura from '../assets/salapura electrical.svg';
+import jayasuriya from '../assets/jayasuriya.svg';
+import salon from '../assets/salon mondy.svg';
+import sigiri from '../assets/sigiri motors.svg';
+import sky from '../assets/sky international.svg';
+import sonic from '../assets/super sonic.svg';
 import { useEffect, useRef } from "react";
 
 

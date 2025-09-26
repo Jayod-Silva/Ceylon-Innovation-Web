@@ -1,6 +1,6 @@
 import Navbar from '../components/ProNav.jsx'
 import Footer from '../components/Footer.jsx'
-import hero from '../assets/ceylon-inovations.png'
+import hero from '../assets/ceylon-inovations.svg'
 import { motion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 import { useEffect, useRef, useState } from "react";

@@ -1,6 +1,6 @@
 import Navbar from "../components/ProNav.jsx";
 import Footer from "../components/Footer.jsx";
-import hero from "../assets/sky-logo.png";
+import hero from "../assets/sky-logo.svg";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
